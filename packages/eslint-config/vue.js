@@ -13,9 +13,17 @@ const project = resolve(process.cwd(), "tsconfig.json");
 
 module.exports = {
   extends: [
-    "@vercel/style-guide/eslint/browser",
-    "@vue/eslint-config-typescript",
-  ].map(require.resolve),
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    ...[
+      "@vercel/style-guide/eslint/browser",
+      "@vue/eslint-config-typescript",
+      "@vue/eslint-config-prettier/skip-formatting",
+    ].map(require.resolve),
+  ],
+  env: {
+    node: true,
+  },
   parserOptions: {
     ecmaVersion: "latest",
   },
@@ -27,10 +35,32 @@ module.exports = {
     },
   },
   ignorePatterns: ["node_modules/", "dist/", ".eslintrc.js"],
-
   rules: {
     "import/no-default-export": "off",
     "vue/multi-word-component-names": "off",
+    "unicorn/filename-case": [
+      "error",
+      {
+        cases: {
+          camelCase: true,
+          pascalCase: true,
+          kebabCase: true,
+        },
+      },
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        args: "all",
+        argsIgnorePattern: "^_",
+        caughtErrors: "all",
+        caughtErrorsIgnorePattern: "^_",
+        destructuredArrayIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+        ignoreRestSiblings: true,
+      },
+    ],
+    "import/order": ["off"],
     // add specific rules configurations here
   },
 };
