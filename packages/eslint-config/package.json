@@ -1,8 +1,14 @@
 {
-  "name": "eslint-config",
+  "name": "@repo/eslint-config",
   "license": "MIT",
   "version": "0.0.0",
   "private": true,
+  "files": [
+    "angular.js",
+    "vue.js",
+    "next.js",
+    "react.js"
+  ],
   "devDependencies": {
     "@vercel/style-guide": "^5.2.0",
     "eslint-config-turbo": "^2.0.0",
@@ -11,9 +17,7 @@
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/eslint-config-typescript": "^13.0.0",
     "eslint-plugin-vue": "^9.23.0",
-    "typescript-eslint": "^8.0.0",
     "@typescript-eslint/parser": "6.0.0",
-    "angular-eslint": "18.3.0",
     "eslint": "^8.0.0"
   }
 }

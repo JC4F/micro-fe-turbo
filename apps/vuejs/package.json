@@ -16,7 +16,7 @@
     "vue": "^3.4.29"
   },
   "devDependencies": {
-    "eslint-config": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
     "ts-config": "workspace:*",
     "eslint": "^8.0.0",
     "@tsconfig/node20": "^20.1.4",

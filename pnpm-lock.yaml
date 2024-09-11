@@ -66,12 +66,12 @@ importers:
       '@types/jasmine':
         specifier: ~5.1.0
         version: 5.1.4
+      angular-eslint:
+        specifier: 18.3.0
+        version: 18.3.0(@angular-devkit/core@18.2.3(chokidar@3.6.0))(@angular-devkit/schematics@18.2.3(chokidar@3.6.0))(@typescript-eslint/utils@8.5.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript-eslint@8.5.0(eslint@8.57.0)(typescript@5.4.5))(typescript@5.4.5)
       eslint:
         specifier: ^8.0.0
         version: 8.57.0
-      eslint-config:
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
       jasmine-core:
         specifier: ~5.1.0
         version: 5.1.2
@@ -96,6 +96,9 @@ importers:
       typescript:
         specifier: ~5.4.2
         version: 5.4.5
+      typescript-eslint:
+        specifier: ^8.0.0
+        version: 8.5.0(eslint@8.57.0)(typescript@5.4.5)
 
   apps/nextjs:
     dependencies:
@@ -109,6 +112,9 @@ importers:
         specifier: ^18
         version: 18.3.1(react@18.3.1)
     devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
       '@types/node':
         specifier: ^20
         version: 20.16.5
@@ -121,9 +127,6 @@ importers:
       eslint:
         specifier: ^8.0.0
         version: 8.57.0
-      eslint-config:
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
       eslint-config-next:
         specifier: 14.2.6
         version: 14.2.6(eslint@8.57.0)(typescript@5.4.5)
@@ -146,6 +149,9 @@ importers:
         specifier: ^3.4.29
         version: 3.5.4(typescript@5.4.5)
     devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
       '@tsconfig/node20':
         specifier: ^20.1.4
         version: 20.1.4
@@ -161,9 +167,6 @@ importers:
       eslint:
         specifier: ^8.0.0
         version: 8.57.0
-      eslint-config:
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
       npm-run-all2:
         specifier: ^6.2.0
         version: 6.2.2
@@ -200,9 +203,6 @@ importers:
       '@vue/eslint-config-typescript':
         specifier: ^13.0.0
         version: 13.0.0(eslint-plugin-vue@9.28.0(eslint@8.57.0))(eslint@8.57.0)(typescript@5.4.5)
-      angular-eslint:
-        specifier: 18.3.0
-        version: 18.3.0(@angular-devkit/core@18.2.3(chokidar@3.6.0))(@angular-devkit/schematics@18.2.3(chokidar@3.6.0))(@typescript-eslint/utils@8.5.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript-eslint@8.5.0(eslint@8.57.0)(typescript@5.4.5))(typescript@5.4.5)
       eslint:
         specifier: ^8.0.0
         version: 8.57.0
@@ -218,9 +218,6 @@ importers:
       eslint-plugin-vue:
         specifier: ^9.23.0
         version: 9.28.0(eslint@8.57.0)
-      typescript-eslint:
-        specifier: ^8.0.0
-        version: 8.5.0(eslint@8.57.0)(typescript@5.4.5)
 
   packages/react-ui:
     dependencies:
@@ -228,6 +225,9 @@ importers:
         specifier: ^18.2.0
         version: 18.3.1
     devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
       '@types/node':
         specifier: ^20.11.24
         version: 20.16.5
@@ -240,9 +240,6 @@ importers:
       eslint:
         specifier: ^8.0.0
         version: 8.57.0
-      eslint-config:
-        specifier: workspace:*
-        version: link:../eslint-config
       ts-config:
         specifier: workspace:*
         version: link:../ts-config
@@ -10399,7 +10396,7 @@ snapshots:
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@6.0.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.30.0(eslint@8.57.0))(eslint@8.57.0)
-      eslint-plugin-import: 2.30.0(@typescript-eslint/parser@6.0.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.0)
+      eslint-plugin-import: 2.30.0(@typescript-eslint/parser@6.0.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@6.0.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.30.0(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
       eslint-plugin-jsx-a11y: 6.10.0(eslint@8.57.0)
       eslint-plugin-react: 7.35.2(eslint@8.57.0)
       eslint-plugin-react-hooks: 4.6.2(eslint@8.57.0)
@@ -10443,7 +10440,7 @@ snapshots:
       is-bun-module: 1.2.1
       is-glob: 4.0.3
     optionalDependencies:
-      eslint-plugin-import: 2.30.0(@typescript-eslint/parser@6.0.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.0)
+      eslint-plugin-import: 2.30.0(@typescript-eslint/parser@6.0.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@6.0.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.30.0(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
     transitivePeerDependencies:
       - '@typescript-eslint/parser'
       - eslint-import-resolver-node
@@ -10518,7 +10515,7 @@ snapshots:
       eslint: 8.57.0
       ignore: 5.3.2
 
-  eslint-plugin-import@2.30.0(@typescript-eslint/parser@6.0.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.0):
+  eslint-plugin-import@2.30.0(@typescript-eslint/parser@6.0.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@6.0.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.30.0(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8

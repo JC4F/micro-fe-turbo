@@ -6,7 +6,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "eslint-config": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
     "ts-config": "workspace:*",
     "eslint": "^8.0.0",
     "@types/node": "^20.11.24",
