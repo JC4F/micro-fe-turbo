@@ -2,7 +2,7 @@
 /* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 
 {
-  "extends": "ts-config/angular.json",
+  "extends": "@repo/ts-config/angular.json",
   "compilerOptions": {
     "outDir": "./dist/out-tsc"
   }

@@ -1,7 +1,11 @@
 {
-  "extends": "ts-config/react.json",
+  "extends": "@repo/ts-config/react.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
