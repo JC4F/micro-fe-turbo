@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LayoutWrapper } from "./_components/layout-wrapper";
 import "./globals.scss";
 
 export const metadata: Metadata = {
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <LayoutWrapper>{children}</LayoutWrapper>
+      </body>
     </html>
   );
 }

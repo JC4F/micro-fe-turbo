@@ -6,7 +6,7 @@ module.exports = {
   content: [
     "app/**/*.{ts,tsx}",
     "components/**/*.{ts,tsx}",
-    "node_modules/react-ui/**/*.{ts,tsx}",
+    "node_modules/@repo/react-ui/**/*.{ts,tsx}",
   ],
   theme: {
     container: {
