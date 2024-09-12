@@ -60,9 +60,6 @@ importers:
       '@angular-builders/custom-webpack':
         specifier: ^18.0.0
         version: 18.0.0(@angular/compiler-cli@18.2.3(@angular/compiler@18.2.3(@angular/core@18.2.3(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.5.4)(chokidar@3.6.0)(karma@6.4.4)(tailwindcss@3.4.10)(typescript@5.4.5)
-      '@angular-devkit/build-angular':
-        specifier: ^18.0.7
-        version: 18.2.3(@angular/compiler-cli@18.2.3(@angular/compiler@18.2.3(@angular/core@18.2.3(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.5.4)(chokidar@3.6.0)(karma@6.4.4)(tailwindcss@3.4.10)(typescript@5.4.5)
       '@angular/cli':
         specifier: ^18.0.7
         version: 18.2.3(chokidar@3.6.0)
@@ -132,9 +129,6 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.10(ts-node@10.9.2(@types/node@22.5.4)(typescript@5.6.2)))
-      vue:
-        specifier: ^3.4.29
-        version: 3.5.4(typescript@5.6.2)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -7171,7 +7165,7 @@ snapshots:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1802.3(chokidar@3.6.0)
-      '@angular-devkit/build-webpack': 0.1802.3(chokidar@3.6.0)(webpack-dev-server@5.0.4(webpack@5.94.0(esbuild@0.23.0)))(webpack@5.94.0(esbuild@0.23.0))
+      '@angular-devkit/build-webpack': 0.1802.3(chokidar@3.6.0)(webpack-dev-server@5.0.4(webpack@5.94.0))(webpack@5.94.0(esbuild@0.23.0))
       '@angular-devkit/core': 18.2.3(chokidar@3.6.0)
       '@angular/build': 18.2.3(@angular/compiler-cli@18.2.3(@angular/compiler@18.2.3(@angular/core@18.2.3(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.5.4)(chokidar@3.6.0)(less@4.2.0)(postcss@8.4.41)(tailwindcss@3.4.10)(terser@5.31.6)(typescript@5.4.5)
       '@angular/compiler-cli': 18.2.3(@angular/compiler@18.2.3(@angular/core@18.2.3(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5)
@@ -7255,7 +7249,7 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  '@angular-devkit/build-webpack@0.1802.3(chokidar@3.6.0)(webpack-dev-server@5.0.4(webpack@5.94.0(esbuild@0.23.0)))(webpack@5.94.0(esbuild@0.23.0))':
+  '@angular-devkit/build-webpack@0.1802.3(chokidar@3.6.0)(webpack-dev-server@5.0.4(webpack@5.94.0))(webpack@5.94.0(esbuild@0.23.0))':
     dependencies:
       '@angular-devkit/architect': 0.1802.3(chokidar@3.6.0)
       rxjs: 7.8.1
@@ -9945,12 +9939,6 @@ snapshots:
       '@vue/compiler-ssr': 3.5.4
       '@vue/shared': 3.5.4
       vue: 3.5.4(typescript@5.4.5)
-
-  '@vue/server-renderer@3.5.4(vue@3.5.4(typescript@5.6.2))':
-    dependencies:
-      '@vue/compiler-ssr': 3.5.4
-      '@vue/shared': 3.5.4
-      vue: 3.5.4(typescript@5.6.2)
 
   '@vue/shared@3.5.4': {}
 
@@ -14885,16 +14873,6 @@ snapshots:
       '@vue/shared': 3.5.4
     optionalDependencies:
       typescript: 5.4.5
-
-  vue@3.5.4(typescript@5.6.2):
-    dependencies:
-      '@vue/compiler-dom': 3.5.4
-      '@vue/compiler-sfc': 3.5.4
-      '@vue/runtime-dom': 3.5.4
-      '@vue/server-renderer': 3.5.4(vue@3.5.4(typescript@5.6.2))
-      '@vue/shared': 3.5.4
-    optionalDependencies:
-      typescript: 5.6.2
 
   walk-up-path@3.0.1: {}
 
