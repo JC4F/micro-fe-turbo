@@ -1,6 +1,6 @@
 {
   "extends": "@repo/ts-config/vue.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "postcss.config.cjs", "tailwind.config.js"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "composite": true,
