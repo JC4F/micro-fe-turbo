@@ -4,9 +4,9 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 module.exports = {
   darkMode: ["class"],
   content: [
-    "app/**/*.{ts,tsx}",
-    "components/**/*.{ts,tsx}",
+    "src/**/*.{ts,tsx}",
     "node_modules/@repo/react-ui/**/*.{ts,tsx}",
+    "index.html",
   ],
   theme: {
     container: {

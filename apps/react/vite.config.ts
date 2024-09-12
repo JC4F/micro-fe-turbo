@@ -11,6 +11,12 @@ export default defineConfig({
       plugins: [tailwind(), autoprefixer()],
     },
   },
+  server: {
+    port: 4001,
+  },
+  preview: {
+    port: 4001,
+  },
   plugins: [react()],
   resolve: {
     alias: {
