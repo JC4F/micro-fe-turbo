@@ -7,7 +7,7 @@ import {
   cn,
 } from "@repo/react-ui";
 import { File, HeartHandshake, Inbox, Send } from "lucide-react";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { Nav } from "./nav";
 import { Outlet } from "react-router-dom";
 
@@ -82,7 +82,9 @@ export const Layout = () => {
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
-          <Outlet />
+          <Suspense fallback={<span>Loading....</span>}>
+            <Outlet />
+          </Suspense>
         </ResizablePanel>
       </ResizablePanelGroup>
     </TooltipProvider>

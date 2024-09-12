@@ -3,7 +3,7 @@ import reactLogo from "@/assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Button } from "@repo/react-ui";
 
-export const ReactPage = () => {
+const ReactPage = () => {
   const [count, setCount] = useState(0);
 
   return (
@@ -29,3 +29,5 @@ export const ReactPage = () => {
     </div>
   );
 };
+
+export default ReactPage;

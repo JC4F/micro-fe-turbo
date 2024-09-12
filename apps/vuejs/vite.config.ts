@@ -16,7 +16,7 @@ export default defineConfig({
       name: 'vue',
       filename: 'remoteEntry.js',
       exposes: {
-        './VuePage': './src/App.vue'
+        './VuePage': './src/main.ts'
       }
       // shared: ['vue']
     })

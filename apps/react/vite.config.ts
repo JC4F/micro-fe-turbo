@@ -19,7 +19,7 @@ export default defineConfig({
       remotes: {
         vue: "http://localhost:4002/assets/remoteEntry.js",
       },
-      // shared: ["vue"],
+      shared: ["vue"],
     }),
   ],
   server: {

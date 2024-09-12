@@ -1,10 +1,11 @@
-import { StrictMode } from "react";
+import { StrictMode, lazy } from "react";
 import { createRoot } from "react-dom/client";
 import "./globals.scss";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "@/components/shared/layout.tsx";
-import { ReactPage } from "@/components/react/index.tsx";
-import { VuePage } from "@/components/vue";
+
+const ReactPage = lazy(() => import("@/components/react/index"));
+const VuePage = lazy(() => import("@/components/vue/index"));
 
 const router = createBrowserRouter([
   {
