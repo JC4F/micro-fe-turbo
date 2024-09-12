@@ -16,8 +16,14 @@ export default defineConfig({
     react(),
     federation({
       name: "react-shell",
+      // @ts-ignore
       remotes: {
         vue: "http://localhost:4002/assets/remoteEntry.js",
+        angular: {
+          external: "http://localhost:4003/remoteEntry.js",
+          format: "esm",
+          from: "webpack",
+        },
       },
       shared: ["vue"],
     }),

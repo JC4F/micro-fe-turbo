@@ -6,6 +6,7 @@ import { Layout } from "@/components/shared/layout.tsx";
 
 const ReactPage = lazy(() => import("@/components/react/index"));
 const VuePage = lazy(() => import("@/components/vue/index"));
+const AngularPage = lazy(() => import("@/components/angular/index"));
 
 const router = createBrowserRouter([
   {
@@ -21,10 +22,10 @@ const router = createBrowserRouter([
         path: "vue",
         element: <VuePage />,
       },
-      // {
-      //   path: "angular",
-      //   element: <Contact />,
-      // },
+      {
+        path: "angular",
+        element: <AngularPage />,
+      },
     ],
   },
 ]);
