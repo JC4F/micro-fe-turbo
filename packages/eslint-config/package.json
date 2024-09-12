@@ -6,7 +6,6 @@
   "files": [
     "angular.js",
     "vue.js",
-    "next.js",
     "react.js"
   ],
   "devDependencies": {
