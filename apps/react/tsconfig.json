@@ -1,7 +1,19 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "extends": "@repo/ts-config/react.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "@repo/react-ui/*": ["../../packages/react-ui/src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "next.config.mjs",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "postcss.config.cjs",
+    "tailwind.config.js"
+  ],
+  "exclude": ["node_modules"]
 }
