@@ -13,15 +13,22 @@ export default defineConfig({
     vueJsx(),
     vueDevTools(),
     federation({
-      name: 'vue-cart',
+      name: 'vue',
       filename: 'remoteEntry.js',
       exposes: {
-        './web-components': './src/main.ts'
-      }
+        './VuePage': './src/App.vue'
+      },
+      shared: ['vue']
     })
   ],
   server: {
     port: 4002
+  },
+  preview: {
+    port: 4002
+  },
+  build: {
+    target: 'ESNext'
   },
   resolve: {
     alias: {
