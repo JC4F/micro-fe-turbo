@@ -17,8 +17,8 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: {
         './VuePage': './src/App.vue'
-      },
-      shared: ['vue']
+      }
+      // shared: ['vue']
     })
   ],
   server: {
@@ -28,7 +28,7 @@ export default defineConfig({
     port: 4002
   },
   build: {
-    target: 'ESNext'
+    target: 'ES2020'
   },
   resolve: {
     alias: {
