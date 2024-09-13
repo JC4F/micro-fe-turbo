@@ -3,12 +3,14 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "concurrently --kill-others \"turbo build --filter vuejs && turbo preview --filter vuejs\" \"turbo dev --filter angular\" \"turbo dev --filter react\"",
     "lint": "turbo lint",
     "cleandep": "rm -rf node_modules && pnpm -r exec rm -rf node_modules",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "preview": "turbo preview"
   },
   "devDependencies": {
+    "concurrently": "^9.0.1",
     "prettier": "^3.2.5",
     "turbo": "^2.1.1",
     "typescript": "^5.4.5"

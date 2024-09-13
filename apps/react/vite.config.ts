@@ -25,7 +25,6 @@ export default defineConfig({
           from: "webpack",
         },
       },
-      shared: ["vue"],
     }),
   ],
   server: {
