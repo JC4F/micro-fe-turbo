@@ -1,15 +1,13 @@
 /* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
 /* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+
 {
-  "extends": "./tsconfig.json",
+  "extends": "@repo/ts-config/angular.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": [],
-    "paths": {
-      "@/*": ["./src/*"],
-      "@repo/angular-ui/*": ["../../packages/angular-ui/src/*"]
-    }
+    "types": []
   },
-  "files": ["src/main.ts"],
-  "include": ["src/**/*.d.ts", "postcss.config.cjs", "tailwind.config.js"]
+  "files": [],
+  "include": ["src/**/*.d.ts", "postcss.config.cjs", "tailwind.config.js"],
+  "exclude": ["node_modules"]
 }
