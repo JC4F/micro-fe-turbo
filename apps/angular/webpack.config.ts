@@ -15,6 +15,7 @@ export default (
 ) => {
   if (config.experiments) config.experiments.outputModule = true;
   config.target = 'es2020';
+  config.watch = true;
 
   if (!config.plugins) config.plugins = [];
 

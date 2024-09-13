@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
     "rxjs": "~7.8.0",
+    "tailwindcss-animate": "^1.0.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },
@@ -31,6 +32,7 @@
     "@repo/ts-config": "workspace:*",
     "@types/jasmine": "~5.1.0",
     "angular-eslint": "18.3.0",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.0.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
@@ -38,6 +40,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
     "typescript": "~5.4.2",
     "typescript-eslint": "^8.0.0",
     "webpack": "^5.94.0"
