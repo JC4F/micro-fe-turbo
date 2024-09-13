@@ -3,7 +3,10 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "concurrently --kill-others \"turbo build --filter vuejs && turbo preview --filter vuejs\" \"turbo dev --filter angular\" \"turbo dev --filter react\"",
+    "dev": "concurrently --kill-others \"pnpm dev:vue\" \"pnpm dev:angular\" \"pnpm dev:react\"",
+    "dev:vue": "concurrently --kill-others  \"turbo build:watch --filter vuejs\" \"turbo preview --filter vuejs\"",
+    "dev:react": "turbo dev --filter react",
+    "dev:angular": "concurrently --kill-others  \"turbo build:watch --filter @repo/angular-ui\" \"turbo dev --filter angular\"",
     "lint": "turbo lint",
     "cleandep": "rm -rf node_modules && pnpm -r exec rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
