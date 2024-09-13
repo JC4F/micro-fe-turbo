@@ -5,7 +5,7 @@ module.exports = {
   darkMode: ["class"],
   content: [
     "src/**/*.{html,ts}",
-    // "node_modules/@repo/angular-ui/**/*.{ts,tsx}",
+    "node_modules/@repo/angular-ui/**/*.{ts,tsx}",
     "index.html",
   ],
   theme: {
