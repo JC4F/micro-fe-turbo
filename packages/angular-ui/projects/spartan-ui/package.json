@@ -2,13 +2,17 @@
   "name": "spartan-ui",
   "version": "0.0.1",
   "peerDependencies": {
+    "@angular/cdk": "18.0.0",
+    "@angular/cli": "^18.0.7",
     "@angular/common": "^18.0.0",
+    "@angular/compiler-cli": "^18.0.0",
     "@angular/core": "^18.0.0",
-    "zone.js": "~0.14.3",
-    "typescript": "~5.4.2"
+    "class-variance-authority": "^0.6.0",
+    "clsx": "^2.1.1",
+    "typescript": "~5.4.2",
+    "zone.js": "~0.14.3"
   },
   "dependencies": {
-    "@angular/cdk": "^18.2.4",
     "@spartan-ng/ui-core": "0.0.1-alpha.355",
     "tslib": "^2.3.0"
   },

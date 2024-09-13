@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularIconComponent } from './icon/angular-icon.component';
 import { HlmButtonDirective } from '@repo/angular-ui';
+import { Test } from '@repo/angular-ui';
 
 @Component({
   selector: 'angular-page',
@@ -10,7 +11,7 @@ import { HlmButtonDirective } from '@repo/angular-ui';
 })
 export class AppComponent {
   title = 'angular';
-  count = 0;
+  count = Test;
 
   incrementCount() {
     this.count++;

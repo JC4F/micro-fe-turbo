@@ -6,8 +6,7 @@
     "outDir": "./out-tsc/app",
     "types": [],
     "paths": {
-      "@/*": ["./src/*"],
-      "@repo/angular-ui/*": ["../../packages/angular-ui/src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "files": ["src/main.ts"],

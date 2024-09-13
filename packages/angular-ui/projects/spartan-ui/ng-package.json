@@ -3,5 +3,6 @@
   "dest": "../../dist/spartan-ui",
   "lib": {
     "entryFile": "src/index.ts"
-  }
+  },
+  "allowedNonPeerDependencies": ["@spartan-ng/ui-core"]
 }
