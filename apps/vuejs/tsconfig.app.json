@@ -9,7 +9,9 @@
     "target": "ESNext",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@repo/vue-ui/*": ["../../packages/vue-ui/src/*"],
+      "@vue-ui/*": ["../../packages/vue-ui/src/*"]
     }
   }
 }

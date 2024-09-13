@@ -1,5 +1,13 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
+import { Button } from '@repo/vue-ui'
+
+const count = ref(0)
+
+function incrementCount() {
+  count.value++
+}
 </script>
 
 <template>
@@ -8,6 +16,6 @@ import HelloWorld from './components/HelloWorld.vue'
 
     <HelloWorld msg="You did it!" />
 
-    <Button></Button>
+    <Button @click="incrementCount">count is {{ count }}</Button>
   </div>
 </template>
