@@ -16,6 +16,7 @@ export default defineConfig({
     react(),
     federation({
       name: "react-shell",
+      filename: "remoteEntry.js",
       // @ts-ignore
       remotes: {
         vue: "http://localhost:4002/assets/remoteEntry.js",
@@ -24,6 +25,9 @@ export default defineConfig({
           format: "esm",
           from: "webpack",
         },
+      },
+      exposes: {
+        "./Store": "./src/expose.ts",
       },
     }),
   ],

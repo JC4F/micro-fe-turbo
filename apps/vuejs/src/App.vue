@@ -1,9 +1,18 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import { Button } from '@repo/vue-ui'
 
 const count = ref(0)
+
+// console.log(hehe.default.useGeneralStore)
+
+onMounted(async () => {
+  // @ts-ignore
+  const hehe = await import('react-shell/Store')
+  console.log(hehe.default.useGeneralStore.getState())
+  hehe.default.useGeneralStore.subscribe(console.log)
+})
 
 function incrementCount() {
   count.value++

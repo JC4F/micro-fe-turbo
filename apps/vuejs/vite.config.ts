@@ -15,6 +15,9 @@ export default defineConfig({
     federation({
       name: 'vue',
       filename: 'remoteEntry.js',
+      remotes: {
+        'react-shell': 'http://localhost:4001/assets/remoteEntry.js'
+      },
       exposes: {
         './VuePage': './src/main.ts'
       }

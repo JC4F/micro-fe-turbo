@@ -10,10 +10,8 @@
   },
   "include": [
     "next-env.d.ts",
-    "next.config.mjs",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
     "postcss.config.cjs",
     "tailwind.config.js"
   ],

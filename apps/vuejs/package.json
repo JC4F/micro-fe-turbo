@@ -15,9 +15,10 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@repo/vue-ui": "workspace:*",
     "tailwindcss-animate": "^1.0.7",
     "vue": "^3.4.29",
-    "@repo/vue-ui": "workspace:*"
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "@originjs/vite-plugin-federation": "^1.3.5",
