@@ -4,26 +4,26 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@react-ui/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+  "rt-inline-flex rt-items-center rt-justify-center rt-whitespace-nowrap rt-rounded-md rt-text-sm rt-font-medium rt-transition-colors focus-visible:rt-outline-none focus-visible:rt-ring-1 focus-visible:rt-ring-ring disabled:rt-pointer-events-none disabled:rt-opacity-50",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+          "rt-bg-primary rt-text-primary-foreground rt-shadow hover:rt-bg-primary/90",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+          "rt-bg-destructive rt-text-destructive-foreground rt-shadow-sm hover:rt-bg-destructive/90",
         outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+          "rt-border rt-border-input rt-bg-background rt-shadow-sm hover:rt-bg-accent hover:rt-text-accent-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "rt-bg-secondary rt-text-secondary-foreground rt-shadow-sm hover:rt-bg-secondary/80",
+        ghost: "hover:rt-bg-accent hover:rt-text-accent-foreground",
+        link: "rt-text-primary rt-underline-offset-4 hover:rt-underline",
       },
       size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-10 rounded-md px-8",
-        icon: "h-9 w-9",
+        default: "rt-h-9 rt-px-4 rt-py-2",
+        sm: "rt-h-8 rt-rounded-md rt-px-3 rt-text-xs",
+        lg: "rt-h-10 rt-rounded-md rt-px-8",
+        icon: "rt-h-9 rt-w-9",
       },
     },
     defaultVariants: {

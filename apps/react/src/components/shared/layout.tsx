@@ -21,7 +21,7 @@ export const Layout = () => {
     <TooltipProvider delayDuration={0}>
       <ResizablePanelGroup
         direction="horizontal"
-        className="w-full h-full items-stretch"
+        className="rt-w-full rt-h-full rt-items-stretch"
       >
         <ResizablePanel
           defaultSize={defaultLayout[0]}
@@ -43,17 +43,19 @@ export const Layout = () => {
           }}
           className={cn(
             isCollapsed &&
-              "min-w-[50px] transition-all duration-300 ease-in-out"
+              "rt-min-w-[50px] rt-transition-all rt-duration-300 rt-ease-in-out"
           )}
         >
           <div
             className={cn(
-              "flex h-[52px] items-center justify-center",
-              isCollapsed ? "h-[52px]" : "px-2"
+              "rt-flex rt-h-[52px] rt-items-center rt-justify-center",
+              isCollapsed ? "rt-h-[52px]" : "rt-px-2"
             )}
           >
-            <HeartHandshake className="size-5" />
-            {!isCollapsed && <span className="ml-1 text-sm">Enjoy it!</span>}
+            <HeartHandshake className="rt-size-5" />
+            {!isCollapsed && (
+              <span className="rt-ml-1 rt-text-sm">Enjoy it!</span>
+            )}
           </div>
           <Separator />
           <Nav

@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="text-center">
+  <div class="vs-text-center">
     <h1>{{ msg }}</h1>
     <h3>
       You’ve successfully created a project with

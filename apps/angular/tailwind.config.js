@@ -3,6 +3,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
+  prefix: "ar-",
   content: [
     "src/**/*.{html,ts}",
     "node_modules/@repo/angular-ui/**/*.{html,ts}",

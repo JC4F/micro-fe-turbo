@@ -3,6 +3,7 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
+  prefix: 'vs-',
   content: ['src/**/*.vue', 'node_modules/@repo/vue-ui/**/*.{ts,tsx}', 'index.html'],
   theme: {
     container: {

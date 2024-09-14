@@ -10,7 +10,7 @@ declare module "react" {
 
 const AngularPage = () => {
   return (
-    <div className="w-full h-full p-6 flex justify-center items-center">
+    <div className="rt-w-full rt-h-full rt-p-6 rt-flex rt-justify-center rt-items-center">
       <angular-page />
     </div>
   );

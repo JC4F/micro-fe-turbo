@@ -3,6 +3,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
+  prefix: "rt-",
   content: [
     "src/**/*.{ts,tsx}",
     "node_modules/@repo/react-ui/**/*.{ts,tsx}",

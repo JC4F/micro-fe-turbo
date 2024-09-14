@@ -27,9 +27,9 @@ export const Nav = ({ links, isCollapsed }: NavProps) => {
   return (
     <div
       data-collapsed={isCollapsed}
-      className="group flex flex-col gap-4 py-2 data-[collapsed=true]:py-2"
+      className="group rt-flex rt-flex-col rt-gap-4 rt-py-2 data-[collapsed=true]:rt-py-2"
     >
-      <nav className="grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
+      <nav className="rt-grid rt-gap-1 rt-px-2 group-[[data-collapsed=true]]:rt-justify-center group-[[data-collapsed=true]]:rt-px-2">
         {links.map((link, index) =>
           isCollapsed ? (
             <Tooltip key={index} delayDuration={0}>
@@ -41,22 +41,23 @@ export const Nav = ({ links, isCollapsed }: NavProps) => {
                       variant: pathname === link.href ? "default" : "ghost",
                       size: "icon",
                     }),
-                    "h-9 w-9",
+                    "rt-size-9",
                     pathname === link.href &&
-                      "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+                      "dark:rt-bg-muted dark:rt-text-muted-foreground dark:hover:rt-bg-muted dark:hover:rt-text-white"
                   )}
                 >
-                  <link.icon className="h-4 w-4" />
-                  <span className="sr-only">{link.title}</span>
+                  <link.icon className="rt-size-4" />
+                  <span className="rt-sr-only">{link.title}</span>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="right" className="flex items-center gap-4">
+              <TooltipContent
+                side="right"
+                className="rt-flex rt-items-center rt-gap-4"
+              >
                 {link.title}
-                {link.label && (
-                  <span className="ml-auto text-muted-foreground">
-                    {link.label}
-                  </span>
-                )}
+                <span className="rt-ml-auto rt-text-muted-foreground">
+                  {link.label}
+                </span>
               </TooltipContent>
             </Tooltip>
           ) : (
@@ -69,22 +70,21 @@ export const Nav = ({ links, isCollapsed }: NavProps) => {
                   size: "default",
                 }),
                 pathname === link.href &&
-                  "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
-                "justify-start"
+                  "dark:rt-bg-muted dark:rt-text-white dark:hover:rt-bg-muted dark:hover:rt-text-white",
+                "rt-justify-start"
               )}
             >
-              <link.icon className="mr-2 h-4 w-4" />
+              <link.icon className="rt-mr-2 rt-h-4 rt-w-4" />
               {link.title}
-              {link.label && (
-                <span
-                  className={cn(
-                    "ml-auto",
-                    pathname === link.href && "text-background dark:text-white"
-                  )}
-                >
-                  {link.label}
-                </span>
-              )}
+              <span
+                className={cn(
+                  "rt-ml-auto",
+                  pathname === link.href &&
+                    "rt-text-background dark:rt-text-white"
+                )}
+              >
+                {link.label}
+              </span>
             </Link>
           )
         )}
