@@ -10,5 +10,10 @@
     }
   },
   "files": ["src/main.ts"],
-  "include": ["src/**/*.d.ts", "postcss.config.cjs", "tailwind.config.js"]
+  "include": [
+    "type.d.ts",
+    "src/**/*.d.ts",
+    "postcss.config.cjs",
+    "tailwind.config.js"
+  ]
 }

@@ -1,6 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AngularIconComponent } from './icon/angular-icon.component';
 import { HlmButtonDirective } from '@repo/angular-ui';
+
+interface GeneralStore {
+  count: number;
+  // Add more properties as needed based on the actual state shape
+}
+
+interface UseGeneralStore {
+  getState: () => GeneralStore;
+  subscribe: (callback: (state: GeneralStore) => void) => () => void; // Returns an unsubscribe function
+  setState: (newState: Partial<GeneralStore>) => void; // Allows partial updates
+}
 
 @Component({
   selector: 'angular-page',
@@ -8,19 +19,38 @@ import { HlmButtonDirective } from '@repo/angular-ui';
   imports: [AngularIconComponent, HlmButtonDirective],
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'angular';
   count = 0;
+  idLoading = true;
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  private unsubscribe: () => void = () => {};
+  private store: UseGeneralStore | undefined;
 
   async ngOnInit() {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const hehe = await import('react-shell/Store');
-    console.log(hehe.default.useGeneralStore.getState());
-    hehe.default.useGeneralStore.subscribe(console.log);
+    const hostModule = await import('react-shell/Store');
+    this.store = hostModule.default.useGeneralStore; // Assign store to class property
+
+    this.count = this.store.getState().count;
+    this.idLoading = false;
+
+    // Store the unsubscribe function
+    this.unsubscribe = this.store.subscribe((state) => {
+      this.count = state.count;
+    });
   }
 
+  // Increment count method
   incrementCount() {
     this.count++;
+    this.store?.setState({ count: this.count }); // Access store from class property
+  }
+
+  // Lifecycle hook for cleanup
+  ngOnDestroy() {
+    // Call the unsubscribe function when the component is destroyed
+    if (this.unsubscribe) {
+      this.unsubscribe();
+    }
   }
 }
