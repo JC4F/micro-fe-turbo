@@ -4,9 +4,9 @@
   "scripts": {
     "build": "turbo build",
     "dev": "ts-node scripts/dev.ts",
-    "dev:legacy": "concurrently --kill-others \"pnpm dev:vue\" \"pnpm dev:angular\" \"pnpm dev:react\"",
+    "dev:legacy": "concurrently --kill-others \"pnpm dev:vuejs\" \"pnpm dev:angular\" \"pnpm dev:react\"",
     "dev:react": "concurrently --kill-others  \"turbo build:watch --filter react\" \"turbo preview --filter react\"",
-    "dev:vue": "concurrently --kill-others  \"turbo build:watch --filter vuejs\" \"turbo preview --filter vuejs\"",
+    "dev:vuejs": "concurrently --kill-others  \"turbo build:watch --filter vuejs\" \"turbo preview --filter vuejs\"",
     "dev:angular": "concurrently --kill-others  \"turbo build:watch --filter @repo/angular-ui\" \"turbo preview --filter angular\"",
     "build:react": "turbo build --filter react",
     "build:vuejs": "turbo build --filter vuejs",
