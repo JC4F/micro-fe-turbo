@@ -4,6 +4,10 @@
     <h1>Hello, {{ title }}</h1>
     <p>Congratulations! Your app is running. 🎉</p>
 
-    <button hlmBtn (click)="incrementCount()">count is {{ count }}</button>
+    @if (idLoading) {
+      <p>Loading........</p>
+    } @else {
+      <button hlmBtn (click)="incrementCount()">count is {{ count }}</button>
+    }
   </div>
 </main>

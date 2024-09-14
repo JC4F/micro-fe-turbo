@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AngularIconComponent } from './icon/angular-icon.component';
 import { HlmButtonDirective } from '@repo/angular-ui';
+import { CommonModule } from '@angular/common';
 
 interface GeneralStore {
   count: number;
@@ -16,7 +17,7 @@ interface UseGeneralStore {
 @Component({
   selector: 'angular-page',
   standalone: true,
-  imports: [AngularIconComponent, HlmButtonDirective],
+  imports: [AngularIconComponent, HlmButtonDirective, CommonModule],
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit, OnDestroy {
