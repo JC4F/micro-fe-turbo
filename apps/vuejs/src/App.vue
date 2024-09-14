@@ -1,22 +1,6 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import Count from './components/Count.vue'
 import HelloWorld from './components/HelloWorld.vue'
-import { Button } from '@repo/vue-ui'
-
-const count = ref(0)
-
-// console.log(hehe.default.useGeneralStore)
-
-onMounted(async () => {
-  // @ts-ignore
-  const hehe = await import('react-shell/Store')
-  console.log(hehe.default.useGeneralStore.getState())
-  hehe.default.useGeneralStore.subscribe(console.log)
-})
-
-function incrementCount() {
-  count.value++
-}
 </script>
 
 <template>
@@ -25,6 +9,12 @@ function incrementCount() {
 
     <HelloWorld msg="You did it!" />
 
-    <Button @click="incrementCount">count is {{ count }}</Button>
+    <Suspense>
+      <!-- component with nested async dependencies -->
+      <Count />
+
+      <!-- loading state via #fallback slot -->
+      <template #fallback> Loading.................... </template>
+    </Suspense>
   </div>
 </template>
