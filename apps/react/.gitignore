@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 tsconfig.tsbuildinfo
+
+# vite config timestamps
+vite.config.*.timestamp-*
