@@ -16,3 +16,13 @@ declare module 'react-shell/Store' {
     useGeneralStore
   }
 }
+
+interface ImportMetaEnv {
+  readonly VITE_REACT_APP: string
+  // readonly VITE_ANGULAR_APP: string
+  // more env variables...
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}

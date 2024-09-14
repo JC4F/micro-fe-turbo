@@ -5,6 +5,9 @@ import {
 } from '@angular-builders/custom-webpack';
 import { container } from 'webpack';
 import * as webpack from 'webpack';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: './.env' });
 
 const { ModuleFederationPlugin } = container;
 
@@ -19,6 +22,8 @@ export default (
 
   if (!config.plugins) config.plugins = [];
 
+  console.log(process.env['VITE_REACT_APP']);
+
   config.plugins = [
     ...config.plugins,
     new ModuleFederationPlugin({
@@ -26,11 +31,14 @@ export default (
       name: 'angular',
       filename: 'remoteEntry.js',
       remotes: {
-        'react-shell': 'http://localhost:4001/assets/remoteEntry.js',
+        'react-shell': `${process.env['VITE_REACT_APP']}/assets/remoteEntry.js`,
       },
       exposes: {
         './AngularPage': './src/main.ts',
       },
+    }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
     }),
   ];
 
