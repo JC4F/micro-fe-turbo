@@ -9,6 +9,7 @@
     "target": "ESNext",
     "baseUrl": ".",
     "paths": {
+      "vue/dist/__globalTypes_3.5_false": ["./node_modules/vue/dist/__globalTypes_3.5_false.d.ts"],
       "@/*": ["./src/*"],
       "@repo/vue-ui/*": ["../../packages/vue-ui/src/*"],
       "@vue-ui/*": ["../../packages/vue-ui/src/*"]
