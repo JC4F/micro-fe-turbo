@@ -1,10 +1,10 @@
-import { useState } from "react";
 import reactLogo from "@/assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Button } from "@repo/react-ui";
+import { useGeneralStore } from "@/strore";
 
 const ReactPage = () => {
-  const [count, setCount] = useState(0);
+  const { count, setCount } = useGeneralStore();
 
   return (
     <div className="flex items-center justify-center h-full flex-col">
@@ -22,9 +22,7 @@ const ReactPage = () => {
       </div>
       <div className="flex flex-col items-center gap-4">
         <h1>Vite + React</h1>
-        <Button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
+        <Button onClick={() => setCount(1)}>count is {count}</Button>
       </div>
     </div>
   );
