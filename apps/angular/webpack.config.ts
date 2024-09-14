@@ -16,7 +16,7 @@ export default (
   options: CustomWebpackBrowserSchema,
   targetOptions: TargetOptions,
 ) => {
-  const mode = process.env['NODE_ENV'] || 'development';
+  const mode = process.env['NODE_ENV'] || 'production';
 
   if (config.experiments) config.experiments.outputModule = true;
   config.target = 'es2020';
