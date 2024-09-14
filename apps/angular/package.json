@@ -5,6 +5,7 @@
     "dev": "ng serve",
     "build": "ng build",
     "build:watch": "ng build --watch --configuration development",
+    "preview": "ng serve --watch --configuration production",
     "test": "ng test",
     "lint": "ng lint"
   },

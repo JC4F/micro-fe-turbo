@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { AngularIconComponent } from './icon/angular-icon.component';
 import { HlmButtonDirective } from '@repo/angular-ui';
 import { CommonModule } from '@angular/common';
@@ -19,6 +19,8 @@ interface UseGeneralStore {
   standalone: true,
   imports: [AngularIconComponent, HlmButtonDirective, CommonModule],
   templateUrl: './app.component.html',
+  styleUrl: '../globals.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'angular';
