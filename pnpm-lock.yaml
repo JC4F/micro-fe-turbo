@@ -268,8 +268,8 @@ importers:
         specifier: ^7.3.1
         version: 7.4.5(rollup@4.21.3)(vite@5.4.5(@types/node@20.16.5)(less@4.2.0)(sass@1.78.0)(terser@5.32.0))(vue@3.5.4(typescript@5.4.5))
       vue-tsc:
-        specifier: ^2.0.21
-        version: 2.1.6(typescript@5.4.5)
+        specifier: ^2.1.2
+        version: 2.1.2(typescript@5.4.5)
 
   packages/angular-ui:
     dependencies:
@@ -3165,8 +3165,8 @@ packages:
       typescript:
         optional: true
 
-  '@vue/language-core@2.1.6':
-    resolution: {integrity: sha512-MW569cSky9R/ooKMh6xa2g1D0AtRKbL56k83dzus/bx//RDJk24RHWkMzbAlXjMdDNyxAaagKPRquBIxkxlCkg==}
+  '@vue/language-core@2.1.2':
+    resolution: {integrity: sha512-tt2J7C+l0J/T5PaLhJ0jvCCi0JNwu3e8azWTYxW3jmAW5B/dac0g5UxmI7l59CQgCGFotqUqI3tXjfZgoWNtog==}
     peerDependencies:
       typescript: '*'
     peerDependenciesMeta:
@@ -7364,8 +7364,8 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
-  vue-tsc@2.1.6:
-    resolution: {integrity: sha512-f98dyZp5FOukcYmbFpuSCJ4Z0vHSOSmxGttZJCsFeX0M4w/Rsq0s4uKXjcSRsZqsRgQa6z7SfuO+y0HVICE57Q==}
+  vue-tsc@2.1.2:
+    resolution: {integrity: sha512-PH1BDxWT3eaPhl73elyZj6DV0nR3K4IFoUM1sGzMXXQneovVUwHQytdSyAHiED5MtEINGSHpL/Hs9ch+c/tDTw==}
     hasBin: true
     peerDependencies:
       typescript: '>=5.0.0'
@@ -10568,7 +10568,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vue/language-core@2.1.6(typescript@5.4.5)':
+  '@vue/language-core@2.1.2(typescript@5.4.5)':
     dependencies:
       '@volar/language-core': 2.4.4
       '@vue/compiler-dom': 3.5.4
@@ -15742,10 +15742,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vue-tsc@2.1.6(typescript@5.4.5):
+  vue-tsc@2.1.2(typescript@5.4.5):
     dependencies:
       '@volar/typescript': 2.4.4
-      '@vue/language-core': 2.1.6(typescript@5.4.5)
+      '@vue/language-core': 2.1.2(typescript@5.4.5)
       semver: 7.6.3
       typescript: 5.4.5
 
