@@ -3,10 +3,11 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "concurrently --kill-others \"pnpm dev:vue\" \"pnpm dev:angular\" \"pnpm dev:react\"",
-    "dev:vue": "concurrently --kill-others  \"turbo build:watch --filter vuejs\" \"turbo preview --filter vuejs\"",
+    "dev": "ts-node scripts/dev.ts",
+    "dev:legacy": "concurrently --kill-others \"pnpm dev:vue\" \"pnpm dev:angular\" \"pnpm dev:react\"",
     "dev:react": "concurrently --kill-others  \"turbo build:watch --filter react\" \"turbo preview --filter react\"",
-    "dev:angular": "concurrently --kill-others  \"turbo build:watch --filter @repo/angular-ui\" \"turbo dev --filter angular\"",
+    "dev:vue": "concurrently --kill-others  \"turbo build:watch --filter vuejs\" \"turbo preview --filter vuejs\"",
+    "dev:angular": "concurrently --kill-others  \"turbo build:watch --filter @repo/angular-ui\" \"turbo preview --filter angular\"",
     "lint": "turbo lint",
     "cleandep": "rm -rf node_modules && pnpm -r exec rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -15,11 +16,15 @@
   "devDependencies": {
     "concurrently": "^9.0.1",
     "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
     "turbo": "^2.1.1",
     "typescript": "^5.4.5"
   },
   "packageManager": "pnpm@9.1.3",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "chalk": "4.1.2"
   }
 }

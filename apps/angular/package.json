@@ -2,10 +2,9 @@
   "name": "angular",
   "version": "0.0.0",
   "scripts": {
-    "dev": "ng serve",
     "build": "ng build",
     "build:watch": "ng build --watch --configuration development",
-    "preview": "ng serve --watch --configuration production",
+    "preview": "ng serve",
     "test": "ng test",
     "lint": "ng lint"
   },
