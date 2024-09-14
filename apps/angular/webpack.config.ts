@@ -16,13 +16,13 @@ export default (
   options: CustomWebpackBrowserSchema,
   targetOptions: TargetOptions,
 ) => {
+  const mode = process.env['NODE_ENV'] || 'development';
+
   if (config.experiments) config.experiments.outputModule = true;
   config.target = 'es2020';
-  config.watch = true;
+  config.watch = mode === 'development';
 
   if (!config.plugins) config.plugins = [];
-
-  console.log(process.env['VITE_REACT_APP']);
 
   config.plugins = [
     ...config.plugins,
