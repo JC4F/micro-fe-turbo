@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  react_app_url: 'https://micro-fe-jc4f.vercel.app',
+    NODE_ENV: 'development',
+    VITE_REACT_APP: 'http://localhost:4001',
 };

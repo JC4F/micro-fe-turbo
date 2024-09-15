@@ -2,11 +2,12 @@
   "name": "angular",
   "version": "0.0.0",
   "scripts": {
-    "build": "ng build",
-    "build:watch": "ng build --watch --configuration development",
-    "preview": "ng serve",
-    "test": "ng test",
-    "lint": "ng lint"
+    "seed-env": "node -r dotenv/config scripts/seed-env.js",
+    "build": "pnpm seed-env && ng build",
+    "build:watch": "pnpm seed-env && ng build --watch --configuration development",
+    "preview": "pnpm seed-env && ng serve",
+    "test": "pnpm seed-env && ng test",
+    "lint": "pnpm seed-env && ng lint"
   },
   "private": true,
   "dependencies": {

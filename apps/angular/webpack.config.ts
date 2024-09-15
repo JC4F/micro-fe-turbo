@@ -19,7 +19,7 @@ export default (
 ) => {
   if (config.experiments) config.experiments.outputModule = true;
   config.target = 'es2020';
-  config.watch = !environment.production;
+  config.watch = environment.NODE_ENV !== 'production';
 
   if (!config.plugins) config.plugins = [];
 
@@ -30,7 +30,7 @@ export default (
       name: 'angular',
       filename: 'remoteEntry.js',
       remotes: {
-        'react-shell': `${environment.react_app_url}/assets/remoteEntry.js`,
+        'react-shell': `${environment.VITE_REACT_APP}/assets/remoteEntry.js`,
       },
       exposes: {
         './AngularPage': './src/main.ts',
