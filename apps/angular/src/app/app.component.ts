@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { AngularIconComponent } from './icon/angular-icon.component';
 import { HlmButtonDirective } from '@repo/angular-ui';
 import { CommonModule } from '@angular/common';
+import { environment } from '../environments/environment';
 
 interface GeneralStore {
   count: number;
@@ -31,7 +32,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private store: UseGeneralStore | undefined;
 
   constructor() {
-    console.log('test env', process.env['NGX_TEST']);
+    console.log('test env', environment.testEnv);
   }
 
   async ngOnInit() {
