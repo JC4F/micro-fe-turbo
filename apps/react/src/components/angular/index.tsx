@@ -26,7 +26,8 @@ const AngularPage = () => {
 
   return (
     <div className="rt-w-full rt-h-full rt-p-6 rt-flex rt-justify-center rt-items-center">
-      {loading ? <Spinner size={"lg"} /> : <angular-page />}
+      {loading && <Spinner size={"lg"} />}
+      <angular-page className={loading ? "hidden" : "block"} />
     </div>
   );
 };
