@@ -26,8 +26,6 @@
 //   return <div ref={vueContainerRef}></div>;
 // };
 
-import("vue/VuePage");
-
 declare module "react" {
   namespace JSX {
     interface IntrinsicElements {

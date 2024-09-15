@@ -9,13 +9,17 @@ import {
 import { File, HeartHandshake, Inbox, Send } from "lucide-react";
 import { Suspense, useState } from "react";
 import { Nav } from "./nav";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import { SpinnerWrapper } from "@/components/shared/loading";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorPage from "@/components/error";
 
 const defaultLayout = [16, 84];
 const navCollapsedSize = 3;
 
 export const Layout = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const location = useLocation();
 
   return (
     <TooltipProvider delayDuration={0}>
@@ -63,13 +67,13 @@ export const Layout = () => {
             links={[
               {
                 title: "React",
-                label: "128",
+                label: "",
                 icon: Inbox,
                 href: "/",
               },
               {
                 title: "Vue",
-                label: "9",
+                label: "",
                 icon: File,
                 href: "/vue",
               },
@@ -84,9 +88,11 @@ export const Layout = () => {
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
-          <Suspense fallback={<span>Loading....</span>}>
-            <Outlet />
-          </Suspense>
+          <ErrorBoundary fallback={<ErrorPage />} key={location.pathname}>
+            <Suspense fallback={<SpinnerWrapper />}>
+              <Outlet />
+            </Suspense>
+          </ErrorBoundary>
         </ResizablePanel>
       </ResizablePanelGroup>
     </TooltipProvider>

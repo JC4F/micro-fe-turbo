@@ -16,6 +16,7 @@
     "lucide-react": "^0.439.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-error-boundary": "^4.0.13",
     "react-router-dom": "^6.26.2",
     "tailwindcss-animate": "^1.0.7",
     "zustand": "^4.5.5"

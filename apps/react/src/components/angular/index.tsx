@@ -1,4 +1,6 @@
-import("angular/AngularPage");
+import { Spinner } from "@repo/react-ui";
+import { useEffect, useState } from "react";
+import { useErrorBoundary } from "react-error-boundary";
 
 declare module "react" {
   namespace JSX {
@@ -9,9 +11,22 @@ declare module "react" {
 }
 
 const AngularPage = () => {
+  const [loading, setLoading] = useState(true);
+  const { showBoundary } = useErrorBoundary();
+
+  useEffect(() => {
+    import("angular/AngularPage")
+      .catch(() => {
+        showBoundary("Error");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="rt-w-full rt-h-full rt-p-6 rt-flex rt-justify-center rt-items-center">
-      <angular-page />
+      {loading ? <Spinner size={"lg"} /> : <angular-page />}
     </div>
   );
 };
