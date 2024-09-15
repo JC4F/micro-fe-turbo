@@ -5,9 +5,10 @@ import {
 } from '@angular-builders/custom-webpack';
 import { container } from 'webpack';
 import * as webpack from 'webpack';
-import dotenv from 'dotenv';
+import { environment } from './src/environments/environment';
+// import dotenv from 'dotenv';
 
-dotenv.config({ path: './.env' });
+// dotenv.config({ path: './.env' });
 
 const { ModuleFederationPlugin } = container;
 
@@ -16,11 +17,9 @@ export default (
   options: CustomWebpackBrowserSchema,
   targetOptions: TargetOptions,
 ) => {
-  const mode = process.env['NODE_ENV'] || 'production';
-
   if (config.experiments) config.experiments.outputModule = true;
   config.target = 'es2020';
-  config.watch = mode === 'development';
+  config.watch = !environment.production;
 
   if (!config.plugins) config.plugins = [];
 
@@ -31,15 +30,15 @@ export default (
       name: 'angular',
       filename: 'remoteEntry.js',
       remotes: {
-        'react-shell': `${process.env['VITE_REACT_APP']}/assets/remoteEntry.js`,
+        'react-shell': `${environment.react_app_url}/assets/remoteEntry.js`,
       },
       exposes: {
         './AngularPage': './src/main.ts',
       },
     }),
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(process.env),
-    }),
+    // new webpack.DefinePlugin({
+    //   'process.env': JSON.stringify(process.env),
+    // }),
   ];
 
   return config;
