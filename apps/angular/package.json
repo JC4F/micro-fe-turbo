@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "seed-env": "node -r dotenv/config scripts/seed-env.js",
-    "build": "pnpm seed-env && ng build",
-    "build:watch": "pnpm seed-env && ng build --watch --configuration development",
-    "preview": "pnpm seed-env && ng serve",
-    "test": "pnpm seed-env && ng test",
-    "lint": "pnpm seed-env && ng lint"
+    "build": "ng build",
+    "build:watch": "ng build --watch --configuration development",
+    "preview": "ng serve",
+    "test": "ng test",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +34,7 @@
     "@angular/compiler-cli": "^18.0.0",
     "@repo/ts-config": "workspace:*",
     "@types/jasmine": "~5.1.0",
+    "@types/node": "^22.5.5",
     "angular-eslint": "18.3.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.0.0",

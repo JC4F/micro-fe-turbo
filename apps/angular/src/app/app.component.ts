@@ -30,6 +30,10 @@ export class AppComponent implements OnInit, OnDestroy {
   private unsubscribe: () => void = () => {};
   private store: UseGeneralStore | undefined;
 
+  constructor() {
+    console.log('test env', process.env['NGX_TEST']);
+  }
+
   async ngOnInit() {
     const hostModule = await import('react-shell/Store');
     this.store = hostModule.default.useGeneralStore; // Assign store to class property

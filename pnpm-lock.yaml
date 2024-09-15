@@ -94,6 +94,9 @@ importers:
       '@types/jasmine':
         specifier: ~5.1.0
         version: 5.1.4
+      '@types/node':
+        specifier: ^22.5.5
+        version: 22.5.5
       angular-eslint:
         specifier: 18.3.0
         version: 18.3.0(@angular-devkit/core@18.2.4(chokidar@3.6.0))(@angular-devkit/schematics@18.2.4(chokidar@3.6.0))(@typescript-eslint/utils@8.5.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript-eslint@8.5.0(eslint@8.57.0)(typescript@5.4.5))(typescript@5.4.5)
