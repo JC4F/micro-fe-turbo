@@ -5,9 +5,7 @@ import {
 } from '@angular-builders/custom-webpack';
 import { container } from 'webpack';
 import * as webpack from 'webpack';
-import dotenv from 'dotenv';
-
-dotenv.config({ path: './.env' });
+import { DotenvRunPlugin } from '@dotenv-run/webpack';
 
 const { ModuleFederationPlugin } = container;
 
@@ -35,9 +33,7 @@ export default (
         './AngularPage': './src/main.ts',
       },
     }),
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(process.env),
-    }),
+    new DotenvRunPlugin({ prefix: 'NGX', verbose: true }),
   ];
 
   return config;
