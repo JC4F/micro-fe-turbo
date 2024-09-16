@@ -6,13 +6,16 @@ import {
   TooltipProvider,
   cn,
 } from "@repo/react-ui";
-import { File, HeartHandshake, Inbox, Send } from "lucide-react";
+import { HeartHandshake } from "lucide-react";
 import { Suspense, useState } from "react";
 import { Nav } from "./nav";
 import { Outlet, useLocation } from "react-router-dom";
 import { SpinnerWrapper } from "@/components/shared/loading";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorPage from "@/components/error";
+import { ReactIcon } from "@/components/icon/react";
+import { VueIcon } from "@/components/icon/vue";
+import { AngularIcon } from "@/components/icon/angular";
 
 const defaultLayout = [16, 84];
 const navCollapsedSize = 3;
@@ -46,8 +49,9 @@ export const Layout = () => {
             )}`;
           }}
           className={cn(
-            isCollapsed &&
-              "rt-min-w-[50px] rt-transition-all rt-duration-300 rt-ease-in-out"
+            isCollapsed
+              ? "rt-min-w-[50px] rt-transition-all rt-duration-300 rt-ease-in-out"
+              : "rt-min-w-[250px]"
           )}
         >
           <div
@@ -68,19 +72,19 @@ export const Layout = () => {
               {
                 title: "React",
                 label: "",
-                icon: Inbox,
+                icon: ReactIcon,
                 href: "/",
               },
               {
                 title: "Vue",
                 label: "",
-                icon: File,
+                icon: VueIcon,
                 href: "/vue",
               },
               {
                 title: "Angular",
                 label: "",
-                icon: Send,
+                icon: AngularIcon,
                 href: "/angular",
               },
             ]}

@@ -1,5 +1,3 @@
-import { LucideIcon } from "lucide-react";
-
 import {
   Tooltip,
   TooltipContent,
@@ -15,7 +13,7 @@ interface NavProps {
   links: {
     title: string;
     label?: string;
-    icon: LucideIcon;
+    icon: (...arg: any) => JSX.Element;
     href: string;
   }[];
 }
@@ -46,7 +44,12 @@ export const Nav = ({ links, isCollapsed }: NavProps) => {
                       "dark:rt-bg-muted dark:rt-text-muted-foreground dark:hover:rt-bg-muted dark:hover:rt-text-white"
                   )}
                 >
-                  <link.icon className="rt-size-4" />
+                  <link.icon
+                    className={cn(
+                      "rt-size-5 rt-fill-muted-foreground",
+                      pathname === link.href && "!rt-fill-muted"
+                    )}
+                  />
                   <span className="rt-sr-only">{link.title}</span>
                 </Link>
               </TooltipTrigger>
@@ -74,7 +77,12 @@ export const Nav = ({ links, isCollapsed }: NavProps) => {
                 "rt-justify-start"
               )}
             >
-              <link.icon className="rt-mr-2 rt-h-4 rt-w-4" />
+              <link.icon
+                className={cn(
+                  "rt-mr-2 rt-size-5 rt-fill-muted-foreground",
+                  pathname === link.href && "!rt-fill-muted"
+                )}
+              />
               {link.title}
               <span
                 className={cn(
