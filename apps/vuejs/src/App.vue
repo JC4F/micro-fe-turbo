@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Skeleton } from '@repo/vue-ui'
 import Count from './components/Count.vue'
 import HelloWorld from './components/HelloWorld.vue'
 </script>
@@ -17,7 +18,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <Count />
 
       <!-- loading state via #fallback slot -->
-      <template #fallback> Loading.................... </template>
+      <template #fallback> <Skeleton class="vs-w-[100px] vs-h-9 vs-rounded-md" /> </template>
     </Suspense>
   </div>
 </template>

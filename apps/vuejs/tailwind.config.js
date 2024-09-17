@@ -4,7 +4,7 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 module.exports = {
   darkMode: ['class'],
   prefix: 'vs-',
-  content: ['src/**/*.vue', 'node_modules/@repo/vue-ui/**/*.{ts,tsx}', 'index.html'],
+  content: ['src/**/*.vue', 'node_modules/@repo/vue-ui/**/*.{ts,vue}', 'index.html'],
   theme: {
     container: {
       center: true,

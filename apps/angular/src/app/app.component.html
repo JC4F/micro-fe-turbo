@@ -6,7 +6,7 @@
   <p class="ar-mb-2">Congratulations! Your app is running. 🎉</p>
 
   @if (idLoading) {
-    <p>Loading........</p>
+    <hlm-skeleton class="ar-w-[100px] ar-h-9 ar-rounded-md" />
   } @else {
     <button hlmBtn (click)="incrementCount()">count is {{ count }}</button>
   }

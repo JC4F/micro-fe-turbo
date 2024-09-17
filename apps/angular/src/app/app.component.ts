@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { AngularIconComponent } from './icon/angular-icon.component';
-import { HlmButtonDirective } from '@repo/angular-ui';
+import { HlmButtonDirective, HlmSkeletonComponent } from '@repo/angular-ui';
 import { CommonModule } from '@angular/common';
 import { environment } from '../environments/environment';
 
@@ -18,7 +18,12 @@ interface UseGeneralStore {
 @Component({
   selector: 'angular-page',
   standalone: true,
-  imports: [AngularIconComponent, HlmButtonDirective, CommonModule],
+  imports: [
+    AngularIconComponent,
+    HlmButtonDirective,
+    CommonModule,
+    HlmSkeletonComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: '../globals.scss',
   encapsulation: ViewEncapsulation.None,

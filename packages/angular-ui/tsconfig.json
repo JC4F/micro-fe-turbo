@@ -21,6 +21,9 @@
       ],
       "@spartan-ng/ui-button-helm": [
         ".\\projects/spartan-ui/src/ui-button-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-skeleton-helm": [
+        ".\\projects/spartan-ui/src/ui-skeleton-helm/src/index.ts"
       ]
     },
     "module": "ES2022",
