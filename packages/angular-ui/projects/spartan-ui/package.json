@@ -10,14 +10,9 @@
     "class-variance-authority": "^0.6.0",
     "clsx": "^2.1.1",
     "typescript": "~5.4.2",
-    "zone.js": "~0.14.3"
-  },
-  "dependencies": {
+    "zone.js": "~0.14.3",
     "@spartan-ng/ui-core": "0.0.1-alpha.355",
     "tslib": "^2.3.0"
   },
-  "sideEffects": false,
-  "devDependencies": {
-    "@spartan-ng/cli": "0.0.1-alpha.364"
-  }
+  "sideEffects": false
 }
