@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./globals.scss";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "@/components/shared/layout.tsx";
+import { QueryClientWrapper } from "@/components/wrapper/query-client";
 
 const ReactPage = lazy(() => import("@/components/react/index"));
 const VuePage = lazy(() =>
@@ -40,6 +41,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientWrapper>
+      <RouterProvider router={router} />
+    </QueryClientWrapper>
   </StrictMode>
 );
