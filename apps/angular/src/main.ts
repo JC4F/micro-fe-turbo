@@ -2,8 +2,8 @@ import 'zone.js';
 
 import { bootstrapApplication } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { appConfig } from './app.config';
+import { AppComponent } from './app.component';
 
 bootstrapApplication(AppComponent, appConfig)
   .then((app) => {

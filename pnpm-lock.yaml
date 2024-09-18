@@ -60,9 +60,18 @@ importers:
       '@repo/angular-ui':
         specifier: workspace:*
         version: link:../../packages/angular-ui
+      '@repo/util':
+        specifier: workspace:*
+        version: link:../../packages/util
+      '@tanstack/angular-query-experimental':
+        specifier: ^5.56.2
+        version: 5.56.2(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
+      lucide-angular:
+        specifier: ^0.441.0
+        version: 0.441.0(@angular/common@18.2.4(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))
       rxjs:
         specifier: ~7.8.0
         version: 7.8.1
@@ -327,6 +336,12 @@ importers:
       '@spartan-ng/ui-core':
         specifier: 0.0.1-alpha.355
         version: 0.0.1-alpha.355(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(clsx@2.1.1)(rxjs@7.8.1)(tailwind-merge@2.5.2)(tailwindcss-animate@1.0.7(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5))))(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5)))
+      '@spartan-ng/ui-formfield-brain':
+        specifier: 0.0.1-alpha.355
+        version: 0.0.1-alpha.355(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(@spartan-ng/ui-core@0.0.1-alpha.355(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(clsx@2.1.1)(rxjs@7.8.1)(tailwind-merge@2.5.2)(tailwindcss-animate@1.0.7(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5))))(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5))))(class-variance-authority@0.6.1)(clsx@2.1.1)
+      '@spartan-ng/ui-forms-brain':
+        specifier: 0.0.1-alpha.355
+        version: 0.0.1-alpha.355(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(@spartan-ng/ui-core@0.0.1-alpha.355(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(clsx@2.1.1)(rxjs@7.8.1)(tailwind-merge@2.5.2)(tailwindcss-animate@1.0.7(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5))))(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5))))(class-variance-authority@0.6.1)(clsx@2.1.1)
       class-variance-authority:
         specifier: ^0.6.0
         version: 0.6.1
@@ -2909,8 +2924,29 @@ packages:
       tailwindcss: ^3.0.2
       tailwindcss-animate: ^1.0.6
 
+  '@spartan-ng/ui-formfield-brain@0.0.1-alpha.355':
+    resolution: {integrity: sha512-wqXe9gKEkNtzvqN/ETakiOw69vy0stfrh7EfhgZkE9uTx/wzo1v7A6n32+SAhgIkr0Z3+RKGG/F4pkVCyzs4jQ==}
+    peerDependencies:
+      '@angular/core': ^18.0.0
+      '@spartan-ng/ui-core': 0.0.1-alpha.355
+      class-variance-authority: ^0.6.0
+      clsx: ^2.1.1
+
+  '@spartan-ng/ui-forms-brain@0.0.1-alpha.355':
+    resolution: {integrity: sha512-ZHBr0nJpatav9YUa9Zzogf4HOBdtyTyqSNBahum9IAblp38Z//iVKbbtkY2H7T5Gt1wc8N5k2ytU97YPdFv2dA==}
+    peerDependencies:
+      '@angular/core': ^18.0.0
+      '@spartan-ng/ui-core': 0.0.1-alpha.355
+      class-variance-authority: ^0.6.0
+      clsx: ^2.1.1
+
   '@swc/helpers@0.5.13':
     resolution: {integrity: sha512-UoKGxQ3r5kYI9dALKJapMmuK+1zWM/H17Z1+iwnNmzcJRnfFuevZs375TA5rW31pu4BS4NoSy1fRsexDXfWn5w==}
+
+  '@tanstack/angular-query-experimental@5.56.2':
+    resolution: {integrity: sha512-etaaMMiApXdZ+D/Zpi25De8XclgsUZVJcW9pQnOgl4BD6PkXSfuvOFp4RLzTHXkFF+W9BOvjPc8TPdqFJaH26Q==}
+    peerDependencies:
+      '@angular/core': '>=16.0.0'
 
   '@tanstack/match-sorter-utils@8.19.4':
     resolution: {integrity: sha512-Wo1iKt2b9OT7d+YGhvEPD3DXvPv2etTusIMhMUoG7fbhmxcXCtIjJDEygy91Y2JFlwGyjqiBPRozme7UD8hoqg==}
@@ -6184,6 +6220,12 @@ packages:
   lru-cache@6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
+
+  lucide-angular@0.441.0:
+    resolution: {integrity: sha512-tU7k3GXYWaTiloXQm4HG5cKLyxv4ujHnYJinPTrHrzqVPXxYC+mKw1H8Ed7EOW8ZDzTEt3w3rlgAH6W1WHCoww==}
+    peerDependencies:
+      '@angular/common': 13.x - 18.x
+      '@angular/core': 13.x - 18.x
 
   lucide-react@0.439.0:
     resolution: {integrity: sha512-PafSWvDTpxdtNEndS2HIHxcNAbd54OaqSYJO90/b63rab2HWYqDbH194j0i82ZFdWOAcf0AHinRykXRRK2PJbw==}
@@ -11805,8 +11847,30 @@ snapshots:
       tailwindcss-animate: 1.0.7(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5)))
       tslib: 2.7.0
 
+  '@spartan-ng/ui-formfield-brain@0.0.1-alpha.355(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(@spartan-ng/ui-core@0.0.1-alpha.355(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(clsx@2.1.1)(rxjs@7.8.1)(tailwind-merge@2.5.2)(tailwindcss-animate@1.0.7(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5))))(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5))))(class-variance-authority@0.6.1)(clsx@2.1.1)':
+    dependencies:
+      '@angular/core': 18.2.4(rxjs@7.8.1)(zone.js@0.14.10)
+      '@spartan-ng/ui-core': 0.0.1-alpha.355(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(clsx@2.1.1)(rxjs@7.8.1)(tailwind-merge@2.5.2)(tailwindcss-animate@1.0.7(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5))))(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5)))
+      class-variance-authority: 0.6.1
+      clsx: 2.1.1
+      tslib: 2.7.0
+
+  '@spartan-ng/ui-forms-brain@0.0.1-alpha.355(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(@spartan-ng/ui-core@0.0.1-alpha.355(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(clsx@2.1.1)(rxjs@7.8.1)(tailwind-merge@2.5.2)(tailwindcss-animate@1.0.7(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5))))(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5))))(class-variance-authority@0.6.1)(clsx@2.1.1)':
+    dependencies:
+      '@angular/core': 18.2.4(rxjs@7.8.1)(zone.js@0.14.10)
+      '@spartan-ng/ui-core': 0.0.1-alpha.355(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(clsx@2.1.1)(rxjs@7.8.1)(tailwind-merge@2.5.2)(tailwindcss-animate@1.0.7(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5))))(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.4.5)))
+      class-variance-authority: 0.6.1
+      clsx: 2.1.1
+      tslib: 2.7.0
+
   '@swc/helpers@0.5.13':
     dependencies:
+      tslib: 2.7.0
+
+  '@tanstack/angular-query-experimental@5.56.2(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))':
+    dependencies:
+      '@angular/core': 18.2.4(rxjs@7.8.1)(zone.js@0.14.10)
+      '@tanstack/query-core': 5.56.2
       tslib: 2.7.0
 
   '@tanstack/match-sorter-utils@8.19.4':
@@ -15855,6 +15919,12 @@ snapshots:
   lru-cache@6.0.0:
     dependencies:
       yallist: 4.0.0
+
+  lucide-angular@0.441.0(@angular/common@18.2.4(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10)):
+    dependencies:
+      '@angular/common': 18.2.4(@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1)
+      '@angular/core': 18.2.4(rxjs@7.8.1)(zone.js@0.14.10)
+      tslib: 2.7.0
 
   lucide-react@0.439.0(react@18.3.1):
     dependencies:

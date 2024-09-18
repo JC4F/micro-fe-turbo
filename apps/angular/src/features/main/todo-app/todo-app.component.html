@@ -1,0 +1,78 @@
+<div
+  class="ar-max-w-md ar-mx-auto ar-bg-white ar-rounded-xl ar-shadow-md ar-overflow-hidden"
+>
+  <div class="ar-p-6">
+    <h1 class="ar-text-xl ar-font-bold ar-text-gray-800 ar-mb-4">Todo App</h1>
+
+    <form class="ar-flex ar-space-x-2 ar-mb-4">
+      <input
+        type="text"
+        hlmInput
+        [formControl]="newTask"
+        placeholder="Add a new task"
+        class="ar-flex-grow"
+      />
+      <button type="button" hlmBtn size="sm" (click)="handleAddTask()">
+        <lucide-icon
+          [img]="PlusCircle"
+          class="ar-h-4 ar-w-4 ar-mr-1"
+        ></lucide-icon>
+        Add
+      </button>
+    </form>
+
+    <ul class="ar-space-y-2 ar-mb-4">
+      @for (task of currentTasks; track task.id) {
+        <li
+          class="ar-flex ar-items-center ar-justify-between ar-p-2 ar-bg-gray-50 ar-rounded-lg"
+        >
+          <span class="ar-text-gray-700 ar-text-sm">{{ task.text }}</span>
+          <button
+            hlmBtn
+            variant="destructive"
+            size="sm"
+            (click)="handleDeleteTask(task.id)"
+            aria-label="Delete task"
+            class="ar-size-8 !ar-p-0"
+          >
+            <lucide-icon [img]="Trash2" class="ar-h-3 ar-w-3"></lucide-icon>
+          </button>
+        </li>
+      }
+    </ul>
+
+    <div class="ar-flex ar-items-center ar-justify-between ar-text-sm">
+      <button
+        hlmBtn
+        (click)="goToPrevPage()"
+        [disabled]="currentPage === 1"
+        variant="outline"
+        size="sm"
+        class="ar-text-xs"
+      >
+        <lucide-icon
+          [img]="ChevronLeft"
+          class="ar-h-3 ar-w-3 ar-mr-1"
+        ></lucide-icon>
+        Prev
+      </button>
+      <span class="ar-text-gray-500">
+        Page {{ currentPage }} of {{ totalPages }}
+      </span>
+      <button
+        hlmBtn
+        (click)="goToNextPage()"
+        [disabled]="currentPage === totalPages"
+        variant="outline"
+        size="sm"
+        class="ar-text-xs"
+      >
+        Next
+        <lucide-icon
+          [img]="ChevronRight"
+          class="ar-h-3 ar-w-3 ar-ml-1"
+        ></lucide-icon>
+      </button>
+    </div>
+  </div>
+</div>

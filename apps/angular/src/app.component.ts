@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { AngularIconComponent } from './icon/angular-icon.component';
+import { AngularIconComponent } from './shares/components/icon/angular-icon.component';
 import { HlmButtonDirective, HlmSkeletonComponent } from '@repo/angular-ui';
 import { CommonModule } from '@angular/common';
-import { environment } from '../environments/environment';
+import { environment } from './environments/environment';
+import { TodoAppComponent } from './features/main/todo-app/todo-app.component';
 
 interface GeneralStore {
   count: number;
@@ -23,15 +24,18 @@ interface UseGeneralStore {
     HlmButtonDirective,
     CommonModule,
     HlmSkeletonComponent,
+    TodoAppComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrl: '../globals.scss',
+  styleUrl: './globals.scss',
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'angular';
   count = 0;
-  idLoading = true;
+  moduleInitLoading = true;
+  showApp = false;
+
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   private unsubscribe: () => void = () => {};
   private store: UseGeneralStore | undefined;
@@ -45,7 +49,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.store = hostModule.default.useGeneralStore; // Assign store to class property
 
     this.count = this.store.getState().count;
-    this.idLoading = false;
+    this.moduleInitLoading = false;
 
     // Store the unsubscribe function
     this.unsubscribe = this.store.subscribe((state) => {
