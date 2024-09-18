@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    TodoManagerInstance: TodoManager | undefined;
+    todoManagerInstance: TodoManager | undefined;
   }
 }
 
@@ -15,11 +15,11 @@ export class TodoManager {
   // Ensure only one instance of TodoManager
   public static getInstance(): TodoManager {
     if (!TodoManager.instance) {
-      if (window["TodoManagerInstance"]) {
-        TodoManager.instance = window["TodoManagerInstance"];
+      if (window["todoManagerInstance"]) {
+        TodoManager.instance = window["todoManagerInstance"];
       } else {
         TodoManager.instance = new TodoManager();
-        window["TodoManagerInstance"] = TodoManager.instance;
+        window["todoManagerInstance"] = TodoManager.instance;
       }
     }
     return TodoManager.instance;
