@@ -37,8 +37,6 @@ const startIndex = computed(() => (currentPage.value - 1) * itemsPerPage)
 const endIndex = computed(() => startIndex.value + itemsPerPage)
 const currentTasks = computed(() => (tasks.value || []).slice(startIndex.value, endIndex.value))
 
-console.log(tasks.value)
-
 const goToNextPage = () => {
   currentPage.value = Math.min(currentPage.value + 1, totalPages.value)
 }
