@@ -16,22 +16,20 @@
     "importHelpers": true,
     "target": "ES2022",
     "paths": {
-      "spartan-ui": [
-        "./dist/spartan-ui"
-      ],
+      "spartan-ui": ["./dist/spartan-ui"],
       "@spartan-ng/ui-button-helm": [
         ".\\projects/spartan-ui/src/ui-button-helm/src/index.ts"
       ],
       "@spartan-ng/ui-skeleton-helm": [
         ".\\projects/spartan-ui/src/ui-skeleton-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-input-helm": [
+        ".\\projects/spartan-ui/src/ui-input-helm/src/index.ts"
       ]
     },
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
