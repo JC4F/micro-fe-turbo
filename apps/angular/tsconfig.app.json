@@ -6,7 +6,8 @@
     "outDir": "./out-tsc/app",
     "types": ["node"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@repo/util": ["../../packages/util/src/index.ts"]
     }
   },
   "files": ["src/main.ts"],
