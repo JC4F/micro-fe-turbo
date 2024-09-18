@@ -70,15 +70,26 @@ export class TodoManager {
     });
   }
 
-  addTask(newTask: string) {
-    if (newTask.trim()) {
-      this.tasks.push({ id: Date.now(), text: newTask });
-      this.saveTasks(); // Save the updated task list to localStorage
-    }
+  addTask(newTask: string): Promise<void> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        if (newTask.trim()) {
+          this.tasks.push({ id: Date.now(), text: newTask });
+          this.saveTasks(); // Save the updated task list to localStorage
+        }
+        resolve();
+      }, 500);
+    });
   }
 
-  deleteTask(id: number) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
-    this.saveTasks(); // Save the updated task list to localStorage
+  // Delete a task with a 500ms delay
+  deleteTask(id: number): Promise<void> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.tasks = this.tasks.filter((task) => task.id !== id);
+        this.saveTasks(); // Save the updated task list to localStorage
+        resolve();
+      }, 500);
+    });
   }
 }
