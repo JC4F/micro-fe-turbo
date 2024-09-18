@@ -13,6 +13,7 @@
   "dependencies": {
     "@originjs/vite-plugin-federation": "^1.3.5",
     "@repo/react-ui": "workspace:*",
+    "@repo/util": "workspace:*",
     "@tanstack/react-query": "^5.56.2",
     "@tanstack/react-query-devtools": "^5.56.2",
     "lucide-react": "^0.439.0",

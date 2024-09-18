@@ -1,32 +1,36 @@
 import { useState } from "react";
 import { Trash2, PlusCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button, Input } from "@repo/react-ui";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { TodoManager } from "@repo/util";
 
 export const TodoApp = () => {
-  const [tasks, setTasks] = useState([
-    { id: 1, text: "Learn React" },
-    { id: 2, text: "Build a todo app" },
-    { id: 3, text: "Add pagination" },
-    { id: 4, text: "Style with Tailwind" },
-    { id: 5, text: "Deploy to production" },
-    { id: 6, text: "Write documentation" },
-    { id: 7, text: "Share with friends" },
-  ]);
+  const queryClient = useQueryClient();
   const [newTask, setNewTask] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
-  const addTask = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (newTask.trim()) {
-      setTasks([...tasks, { id: Date.now(), text: newTask }]);
-      setNewTask("");
-    }
-  };
+  // Fetch tasks from TodoManager with TanStack Query
+  const { data: tasks = [], isLoading } = useQuery({
+    queryKey: ["tasks"],
+    queryFn: () => TodoManager.getInstance().getTasks(),
+  });
 
-  const deleteTask = (id: number) => {
-    setTasks(tasks.filter((task) => task.id !== id));
-  };
+  // Mutations for adding and deleting tasks
+  const addTaskMutation = useMutation({
+    mutationFn: (newTask: string) => TodoManager.getInstance().addTask(newTask),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["tasks"] });
+    },
+  });
+
+  const deleteTaskMutation = useMutation({
+    mutationFn: (taskId: number) =>
+      TodoManager.getInstance().deleteTask(taskId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["tasks"] });
+    },
+  });
 
   // Calculate pagination values
   const totalPages = Math.ceil(tasks.length / itemsPerPage);
@@ -38,14 +42,30 @@ export const TodoApp = () => {
     setCurrentPage((page) => Math.min(page + 1, totalPages));
   const goToPrevPage = () => setCurrentPage((page) => Math.max(page - 1, 1));
 
+  const handleAddTask = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (newTask.trim()) {
+      addTaskMutation.mutate(newTask);
+      setNewTask("");
+    }
+  };
+
+  const handleDeleteTask = (taskId: number) => {
+    deleteTaskMutation.mutate(taskId);
+  };
+
+  if (isLoading) {
+    return <div>Loading tasks...</div>;
+  }
+
   return (
-    <div className="rt-max-w-md rt-mx-auto rt-mt-10 rt-bg-white rt-rounded-xl rt-shadow-md rt-overflow-hidden">
+    <div className="rt-max-w-md rt-mx-auto rt-bg-white rt-rounded-xl rt-shadow-md rt-overflow-hidden">
       <div className="rt-p-6">
         <h1 className="rt-text-xl rt-font-bold rt-text-gray-800 rt-mb-4">
           Todo App
         </h1>
 
-        <form onSubmit={addTask} className="rt-flex rt-space-x-2 rt-mb-4">
+        <form onSubmit={handleAddTask} className="rt-flex rt-space-x-2 rt-mb-4">
           <Input
             type="text"
             value={newTask}
@@ -69,7 +89,7 @@ export const TodoApp = () => {
               <Button
                 variant="destructive"
                 size="sm"
-                onClick={() => deleteTask(task.id)}
+                onClick={() => handleDeleteTask(task.id)}
                 aria-label="Delete task"
                 className="rt-size-8 !rt-p-0"
               >
