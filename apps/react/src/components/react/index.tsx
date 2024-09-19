@@ -15,7 +15,7 @@ const ReactPage = () => {
       <div className="rt-flex rt-items-center rt-justify-center rt-gap-2">
         <Button onClick={() => setCount(1)}>Count is {count}</Button>
         <Button variant="destructive" onClick={() => setShowApp(!showApp)}>
-          Todo apps ^^
+          💩 apps 💩
         </Button>
       </div>
       <div

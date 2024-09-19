@@ -1,6 +1,10 @@
 <ng-container>
   <div class="ar-p-6">
-    <h1 class="ar-text-xl ar-font-bold ar-text-foreground ar-mb-4">💩💩 App</h1>
+    <h1
+      class="ar-text-xl ar-text-center ar-font-bold ar-text-foreground ar-mb-4"
+    >
+      💩💩
+    </h1>
 
     <form class="ar-flex ar-space-x-2 ar-mb-4">
       <input
@@ -20,8 +24,8 @@
     </form>
 
     <ul class="ar-space-y-2 ar-mb-4">
-      @if (isFetching) {
-        <div>Loading tasks...</div>
+      @if (isLoading) {
+        <hlm-skeleton class="ar-w-full ar-h-9 ar-rounded-md" />
       } @else {
         @for (task of currentTasks; track task.id) {
           <li

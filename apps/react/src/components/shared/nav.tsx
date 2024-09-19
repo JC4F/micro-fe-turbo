@@ -26,7 +26,7 @@ export const Nav = ({ links, isCollapsed }: NavProps) => {
   return (
     <div
       data-collapsed={isCollapsed}
-      className="group rt-flex rt-flex-col rt-justify-between rt-items-center rt-gap-4 rt-py-2 data-[collapsed=true]:rt-py-2 rt-h-[calc(100%-53px)] rt-w-full"
+      className="group rt-flex rt-flex-col rt-justify-between rt-items-center rt-gap-4 rt-py-2 data-[collapsed=true]:rt-py-2 rt-h-[calc(100%-61px)] rt-w-full"
     >
       <nav className="rt-w-full rt-grid rt-gap-1 rt-px-2 group-[[data-collapsed=true]]:rt-justify-center group-[[data-collapsed=true]]:rt-px-2">
         {links.map((link, index) =>
@@ -99,7 +99,7 @@ export const Nav = ({ links, isCollapsed }: NavProps) => {
         )}
       </nav>
 
-      <ThemeToggle />
+      <ThemeToggle isCollapsed={isCollapsed} />
     </div>
   );
 };

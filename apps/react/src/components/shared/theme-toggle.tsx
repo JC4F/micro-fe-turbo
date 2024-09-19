@@ -1,22 +1,23 @@
-import { ActionTooltip, Button } from "@repo/react-ui";
+import { ActionTooltip, Button, cn } from "@repo/react-ui";
 import { useGeneralStore } from "@repo/util";
 import { Moon, Sun } from "lucide-react";
 
-export function ThemeToggle() {
+export function ThemeToggle({ isCollapsed = true }: { isCollapsed: boolean }) {
   const { theme, setTheme } = useGeneralStore();
 
   return (
     <ActionTooltip label={theme === "dark" ? "Light" : "Dark"} theme="dark">
       <Button
-        variant="ghost"
-        size="icon"
+        variant="secondary"
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        className={cn(
+          "rt-w-[calc(100%-16px)] !rt-p-0",
+          isCollapsed && "rt-flex rt-items-center"
+        )}
       >
         {theme === "dark" && <Sun className="rt-size-5" />}
         {theme === "light" && <Moon className="rt-size-5" />}
-        <span className="rt-sr-only">
-          {theme === "dark" ? "Light" : "Dark"}
-        </span>
+        {!isCollapsed && <span className="rt-ml-2">Change Mode</span>}
       </Button>
     </ActionTooltip>
   );

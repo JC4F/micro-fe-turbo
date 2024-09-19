@@ -13,7 +13,11 @@ import {
   ChevronRight,
 } from 'lucide-angular';
 import { TodoManager } from '@repo/util';
-import { HlmButtonDirective, HlmInputDirective } from '@repo/angular-ui';
+import {
+  HlmButtonDirective,
+  HlmInputDirective,
+  HlmSkeletonComponent,
+} from '@repo/angular-ui';
 
 @Component({
   selector: 'todo-app',
@@ -23,6 +27,7 @@ import { HlmButtonDirective, HlmInputDirective } from '@repo/angular-ui';
     LucideAngularModule,
     HlmInputDirective,
     HlmButtonDirective,
+    HlmSkeletonComponent,
   ],
   templateUrl: './todo-app.component.html',
 })
@@ -44,7 +49,10 @@ export class TodoAppComponent {
     // Register a new effect.
     effect(() => {
       this.tasks = this.query.data() || [];
-      this.isFetching = this.query.status() === 'pending';
+      this.isLoading =
+        this.query.isLoading() ||
+        this.addTaskMutation.isPending() ||
+        this.deleteTaskMutation.isPending();
 
       // Calculate pagination values
       this.totalPages = Math.ceil(this.tasks.length / this.itemsPerPage);
@@ -61,21 +69,24 @@ export class TodoAppComponent {
 
   addTaskMutation = injectMutation((client) => ({
     mutationFn: (newTask: string) => TodoManager.getInstance().addTask(newTask),
-    onSuccess: () => {
-      client.invalidateQueries({ queryKey: ['tasks'] });
+    onSettled: async () => {
+      return await client.invalidateQueries({ queryKey: ['tasks'] });
     },
   }));
 
   deleteTaskMutation = injectMutation((client) => ({
     mutationFn: (taskId: number) =>
       TodoManager.getInstance().deleteTask(taskId),
-    onSuccess: () => {
-      client.invalidateQueries({ queryKey: ['tasks'] });
+    onSettled: async () => {
+      return await client.invalidateQueries({ queryKey: ['tasks'] });
     },
   }));
 
   tasks = this.query.data() || [];
-  isFetching = this.query.status() === 'pending';
+  isLoading =
+    this.query.isLoading() ||
+    this.addTaskMutation.isPending() ||
+    this.deleteTaskMutation.isPending();
 
   // Calculate pagination values
   totalPages = Math.ceil(this.tasks.length / this.itemsPerPage);

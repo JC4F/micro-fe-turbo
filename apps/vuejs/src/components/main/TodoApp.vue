@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/vue-query'
 import { Trash2, PlusCircle, ChevronLeft, ChevronRight } from 'lucide-vue-next'
-import { Button, Input } from '@repo/vue-ui'
+import { Button, Input, Skeleton } from '@repo/vue-ui'
 import { TodoManager } from '@repo/util'
 
 const queryClient = useQueryClient()
@@ -11,25 +11,31 @@ const currentPage = ref(1)
 const itemsPerPage = 5
 
 // Fetch tasks from TodoManager with TanStack Query
-const { data: tasks, isLoading } = useQuery({
+const query = useQuery({
   queryKey: ['tasks'],
   queryFn: () => TodoManager.getInstance().getTasks()
 })
 
+const tasks = query.data
+
 // Mutations for adding and deleting tasks
 const addTaskMutation = useMutation({
   mutationFn: (newTask: string) => TodoManager.getInstance().addTask(newTask),
-  onSuccess: () => {
-    queryClient.invalidateQueries({ queryKey: ['tasks'] })
+  // make sure to _return_ the Promise from the query invalidation
+  // so that the mutation stays in `pending` state until the refetch is finished
+  onSettled: async () => {
+    return await queryClient.invalidateQueries({ queryKey: ['tasks'] })
   }
 })
 
 const deleteTaskMutation = useMutation({
   mutationFn: (taskId: number) => TodoManager.getInstance().deleteTask(taskId),
-  onSuccess: () => {
-    queryClient.invalidateQueries({ queryKey: ['tasks'] })
+  onSettled: async () => {
+    return await queryClient.invalidateQueries({ queryKey: ['tasks'] })
   }
 })
+
+const isLoading = query.isLoading || addTaskMutation.isPending || deleteTaskMutation.isPending
 
 // Calculate pagination values
 const totalPages = computed(() => Math.ceil((tasks.value || []).length / itemsPerPage))
@@ -62,7 +68,7 @@ const handleDeleteTask = (taskId: number) => {
     class="vs-max-w-md vs-mx-auto vs-bg-card vs-border vs-border-border vs-rounded-xl vs-shadow-md vs-overflow-hidden"
   >
     <div class="vs-p-6">
-      <h1 class="vs-text-xl vs-font-bold vs-text-foreground vs-mb-4">💩💩 App</h1>
+      <h1 class="vs-text-xl vs-text-center vs-font-bold vs-text-foreground vs-mb-4">💩💩</h1>
 
       <form @submit.prevent="handleAddTask" class="vs-flex vs-space-x-2 vs-mb-4">
         <Input type="text" v-model="newTask" placeholder="Add a new task" class="vs-flex-grow" />
@@ -74,7 +80,7 @@ const handleDeleteTask = (taskId: number) => {
 
       <ul class="vs-space-y-2 vs-mb-4">
         <template v-if="isLoading">
-          <div>Loading tasks...</div>
+          <Skeleton className="vs-w-full vs-h-9 vs-rounded-md" />
         </template>
         <template v-else>
           <li

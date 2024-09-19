@@ -16,7 +16,7 @@ const showApp = ref(false)
     <h1>Vite + Vue 3</h1>
     <div class="vs-flex vs-items-center vs-justify-center vs-gap-2">
       <Count />
-      <Button variant="destructive" @click="showApp = !showApp">Todo apps ^^</Button>
+      <Button variant="destructive" @click="showApp = !showApp">💩 apps 💩</Button>
     </div>
 
     <div

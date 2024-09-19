@@ -66,7 +66,7 @@ export class TodoManager {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(this.tasks);
-      }, 2000);
+      }, 1000);
     });
   }
 
@@ -78,7 +78,7 @@ export class TodoManager {
           this.saveTasks(); // Save the updated task list to localStorage
         }
         resolve();
-      }, 500);
+      }, 100);
     });
   }
 
@@ -89,7 +89,7 @@ export class TodoManager {
         this.tasks = this.tasks.filter((task) => task.id !== id);
         this.saveTasks(); // Save the updated task list to localStorage
         resolve();
-      }, 500);
+      }, 100);
     });
   }
 }

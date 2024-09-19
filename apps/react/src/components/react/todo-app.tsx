@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Trash2, PlusCircle, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button, Input } from "@repo/react-ui";
+import { Button, Input, Skeleton } from "@repo/react-ui";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { TodoManager } from "@repo/util";
 
@@ -11,26 +11,38 @@ export const TodoApp = () => {
   const itemsPerPage = 5;
 
   // Fetch tasks from TodoManager with TanStack Query
-  const { data: tasks = [], isLoading } = useQuery({
+  const query = useQuery({
     queryKey: ["tasks"],
     queryFn: () => TodoManager.getInstance().getTasks(),
   });
 
+  const tasks = query.data || [];
+
   // Mutations for adding and deleting tasks
   const addTaskMutation = useMutation({
     mutationFn: (newTask: string) => TodoManager.getInstance().addTask(newTask),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["tasks"] });
+    // make sure to _return_ the Promise from the query invalidation
+    // so that the mutation stays in `pending` state until the refetch is finished
+    onSettled: async () => {
+      return await queryClient.invalidateQueries({ queryKey: ["tasks"] });
     },
+    // onSuccess: () => {
+    //   queryClient.invalidateQueries({ queryKey: ["tasks"] });
+    // },
   });
 
   const deleteTaskMutation = useMutation({
     mutationFn: (taskId: number) =>
       TodoManager.getInstance().deleteTask(taskId),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["tasks"] });
+    onSettled: async () => {
+      return await queryClient.invalidateQueries({ queryKey: ["tasks"] });
     },
   });
+
+  const isLoading =
+    query.isLoading ||
+    addTaskMutation.isPending ||
+    deleteTaskMutation.isPending;
 
   // Calculate pagination values
   const totalPages = Math.ceil(tasks.length / itemsPerPage);
@@ -57,8 +69,8 @@ export const TodoApp = () => {
   return (
     <div className="rt-max-w-md rt-mx-auto rt-bg-card rt-border rt-border-border rt-rounded-xl rt-shadow-md rt-overflow-hidden">
       <div className="rt-p-6">
-        <h1 className="rt-text-xl rt-font-bold rt-text-foreground rt-mb-4">
-          💩💩 App
+        <h1 className="rt-text-xl rt-font-bold rt-text-foreground rt-text-center rt-mb-4">
+          💩💩
         </h1>
 
         <form onSubmit={handleAddTask} className="rt-flex rt-space-x-2 rt-mb-4">
@@ -77,7 +89,7 @@ export const TodoApp = () => {
 
         <ul className="rt-space-y-2 rt-mb-4">
           {isLoading ? (
-            <div>Loading tasks...</div>
+            <Skeleton className="rt-w-full rt-h-9 rt-rounded-md" />
           ) : (
             <>
               {currentTasks.map((task) => (
