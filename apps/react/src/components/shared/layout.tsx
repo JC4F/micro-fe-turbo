@@ -28,7 +28,7 @@ export const Layout = () => {
     <TooltipProvider delayDuration={0}>
       <ResizablePanelGroup
         direction="horizontal"
-        className="rt-w-full rt-h-full rt-items-stretch"
+        className="rt-w-full rt-h-full rt-items-stretch rt-bg-background"
       >
         <ResizablePanel
           defaultSize={defaultLayout[0]}

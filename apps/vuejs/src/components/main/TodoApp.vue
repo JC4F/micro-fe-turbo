@@ -58,9 +58,11 @@ const handleDeleteTask = (taskId: number) => {
 </script>
 
 <template>
-  <div class="vs-max-w-md vs-mx-auto vs-bg-white vs-rounded-xl vs-shadow-md vs-overflow-hidden">
+  <div
+    class="vs-max-w-md vs-mx-auto vs-bg-card vs-border vs-border-border vs-rounded-xl vs-shadow-md vs-overflow-hidden"
+  >
     <div class="vs-p-6">
-      <h1 class="vs-text-xl vs-font-bold vs-text-gray-800 vs-mb-4">💩💩 App</h1>
+      <h1 class="vs-text-xl vs-font-bold vs-text-foreground vs-mb-4">💩💩 App</h1>
 
       <form @submit.prevent="handleAddTask" class="vs-flex vs-space-x-2 vs-mb-4">
         <Input type="text" v-model="newTask" placeholder="Add a new task" class="vs-flex-grow" />
@@ -78,9 +80,9 @@ const handleDeleteTask = (taskId: number) => {
           <li
             v-for="task in currentTasks"
             :key="task.id"
-            class="vs-flex vs-items-center vs-justify-between vs-p-2 vs-bg-gray-50 vs-rounded-lg"
+            class="vs-flex vs-items-center vs-justify-between vs-p-2 vs-bg-accent vs-rounded-lg"
           >
-            <span class="vs-text-gray-700 vs-text-sm">{{ task.text }}</span>
+            <span class="vs-text-foreground/70 vs-text-sm">{{ task.text }}</span>
             <Button
               variant="destructive"
               size="sm"
@@ -105,7 +107,7 @@ const handleDeleteTask = (taskId: number) => {
           <ChevronLeft class="vs-h-3 vs-w-3 vs-mr-1" />
           Prev
         </Button>
-        <span class="vs-text-gray-500">Page {{ currentPage }} of {{ totalPages }}</span>
+        <span class="vs-text-foreground/50">Page {{ currentPage }} of {{ totalPages }}</span>
         <Button
           @click="goToNextPage"
           :disabled="currentPage === totalPages"

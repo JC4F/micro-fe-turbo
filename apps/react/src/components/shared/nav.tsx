@@ -1,3 +1,4 @@
+import { ThemeToggle } from "@/components/shared/theme-toggle";
 import {
   Tooltip,
   TooltipContent,
@@ -25,9 +26,9 @@ export const Nav = ({ links, isCollapsed }: NavProps) => {
   return (
     <div
       data-collapsed={isCollapsed}
-      className="group rt-flex rt-flex-col rt-gap-4 rt-py-2 data-[collapsed=true]:rt-py-2"
+      className="group rt-flex rt-flex-col rt-justify-between rt-items-center rt-gap-4 rt-py-2 data-[collapsed=true]:rt-py-2 rt-h-[calc(100%-53px)] rt-w-full"
     >
-      <nav className="rt-grid rt-gap-1 rt-px-2 group-[[data-collapsed=true]]:rt-justify-center group-[[data-collapsed=true]]:rt-px-2">
+      <nav className="rt-w-full rt-grid rt-gap-1 rt-px-2 group-[[data-collapsed=true]]:rt-justify-center group-[[data-collapsed=true]]:rt-px-2">
         {links.map((link, index) =>
           isCollapsed ? (
             <Tooltip key={index} delayDuration={0}>
@@ -97,6 +98,8 @@ export const Nav = ({ links, isCollapsed }: NavProps) => {
           )
         )}
       </nav>
+
+      <ThemeToggle />
     </div>
   );
 };

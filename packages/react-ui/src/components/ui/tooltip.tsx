@@ -26,4 +26,45 @@ const TooltipContent = React.forwardRef<
 ));
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
+interface ActionTooltipProps {
+  label: React.ReactNode;
+  children: React.ReactNode;
+  duration?: number;
+  side?: "top" | "right" | "bottom" | "left";
+  align?: "start" | "center" | "end";
+  theme?: "light" | "dark";
+}
+
+export function ActionTooltip({
+  label,
+  children,
+  side,
+  align,
+  duration = 0,
+  theme,
+}: ActionTooltipProps) {
+  return (
+    <TooltipProvider>
+      <Tooltip delayDuration={duration}>
+        <TooltipTrigger asChild>{children}</TooltipTrigger>
+        <div className="rt-absolute">
+          <div className="rt-relative">
+            <TooltipContent
+              align={align}
+              className={
+                theme === "dark" ? "rt-text-background rt-bg-foreground" : ""
+              }
+              side={side}
+            >
+              <p className="rt-font-semibold rt-text-sm rt-capitalize">
+                {label}
+              </p>
+            </TooltipContent>
+          </div>
+        </div>
+      </Tooltip>
+    </TooltipProvider>
+  );
+}
+
 export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger };

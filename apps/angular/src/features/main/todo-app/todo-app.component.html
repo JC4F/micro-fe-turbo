@@ -1,6 +1,6 @@
 <ng-container>
   <div class="ar-p-6">
-    <h1 class="ar-text-xl ar-font-bold ar-text-gray-800 ar-mb-4">💩💩 App</h1>
+    <h1 class="ar-text-xl ar-font-bold ar-text-foreground ar-mb-4">💩💩 App</h1>
 
     <form class="ar-flex ar-space-x-2 ar-mb-4">
       <input
@@ -25,9 +25,11 @@
       } @else {
         @for (task of currentTasks; track task.id) {
           <li
-            class="ar-flex ar-items-center ar-justify-between ar-p-2 ar-bg-gray-50 ar-rounded-lg"
+            class="ar-flex ar-items-center ar-justify-between ar-p-2 ar-bg-accent ar-rounded-lg"
           >
-            <span class="ar-text-gray-700 ar-text-sm">{{ task.text }}</span>
+            <span class="ar-text-foreground/70 ar-text-sm">{{
+              task.text
+            }}</span>
             <button
               hlmBtn
               variant="destructive"
@@ -58,7 +60,7 @@
         ></lucide-icon>
         Prev
       </button>
-      <span class="ar-text-gray-500">
+      <span class="ar-text-foreground/50">
         Page {{ currentPage }} of {{ totalPages }}
       </span>
       <button

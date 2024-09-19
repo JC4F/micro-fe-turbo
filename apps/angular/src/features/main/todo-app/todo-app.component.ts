@@ -28,7 +28,7 @@ import { HlmButtonDirective, HlmInputDirective } from '@repo/angular-ui';
 })
 export class TodoAppComponent {
   @HostBinding('class') classes =
-    'ar-max-w-md ar-mx-auto ar-bg-white ar-rounded-xl ar-shadow-md ar-overflow-hidden';
+    'ar-max-w-md ar-mx-auto ar-bg-card ar-border ar-border-border ar-rounded-xl ar-shadow-md ar-overflow-hidden';
 
   readonly PlusCircle = PlusCircle;
   readonly Trash2 = Trash2;

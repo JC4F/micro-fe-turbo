@@ -55,9 +55,9 @@ export const TodoApp = () => {
   };
 
   return (
-    <div className="rt-max-w-md rt-mx-auto rt-bg-white rt-rounded-xl rt-shadow-md rt-overflow-hidden">
+    <div className="rt-max-w-md rt-mx-auto rt-bg-card rt-border rt-border-border rt-rounded-xl rt-shadow-md rt-overflow-hidden">
       <div className="rt-p-6">
-        <h1 className="rt-text-xl rt-font-bold rt-text-gray-800 rt-mb-4">
+        <h1 className="rt-text-xl rt-font-bold rt-text-foreground rt-mb-4">
           💩💩 App
         </h1>
 
@@ -83,9 +83,9 @@ export const TodoApp = () => {
               {currentTasks.map((task) => (
                 <li
                   key={task.id}
-                  className="rt-flex rt-items-center rt-justify-between rt-p-2 rt-bg-gray-50 rt-rounded-lg"
+                  className="rt-flex rt-items-center rt-justify-between rt-p-2 rt-bg-accent rt-rounded-lg"
                 >
-                  <span className="rt-text-gray-700 rt-text-sm">
+                  <span className="rt-text-foreground/70 rt-text-sm">
                     {task.text}
                   </span>
                   <Button
@@ -114,7 +114,7 @@ export const TodoApp = () => {
             <ChevronLeft className="rt-h-3 rt-w-3 rt-mr-1" />
             Prev
           </Button>
-          <span className="rt-text-gray-500">
+          <span className="rt-text-foreground/50">
             Page {currentPage} of {totalPages}
           </span>
           <Button

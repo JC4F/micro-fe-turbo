@@ -76,7 +76,7 @@
 body {
   font-family: Inter, Verdana, Geneva, Tahoma, sans-serif;
   // font-size: 87.5%;
-  /* @apply antialiased; */
+  @apply rt-bg-background rt-text-foreground;
 }
 
 ::-webkit-scrollbar {
