@@ -42,6 +42,20 @@ export default ({ mode }: any) => {
     },
     build: {
       target: "ES2020",
+
+      // hide source map error to output
+      rollupOptions: {
+        onLog(level, log, handler) {
+          if (
+            log.cause &&
+            (log.cause as any).message ===
+              `Can't resolve original location of error.`
+          ) {
+            return;
+          }
+          handler(level, log);
+        },
+      },
     },
     resolve: {
       alias: {

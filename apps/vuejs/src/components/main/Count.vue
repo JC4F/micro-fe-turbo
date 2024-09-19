@@ -19,5 +19,5 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <Button @click="incrementCount">count is {{ count }}</Button>
+  <Button @click="incrementCount">Count is {{ count }}</Button>
 </template>

@@ -4,6 +4,7 @@ import "./globals.scss";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "@/components/shared/layout.tsx";
 import { Wrapper } from "@/components/wrapper";
+import ErrorPage from "@/components/error";
 
 const ReactPage = lazy(() => import("@/components/react/index"));
 const VuePage = lazy(() =>
@@ -11,7 +12,6 @@ const VuePage = lazy(() =>
 );
 const AngularPage = lazy(() => import("@/components/angular/index"));
 const NotFoundPage = lazy(() => import("@/components/not-found/index"));
-const ErrorPage = lazy(() => import("@/components/error/index"));
 
 const router = createBrowserRouter([
   {
