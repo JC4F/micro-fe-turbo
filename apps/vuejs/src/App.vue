@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Button, cn } from '@repo/vue-ui'
-import Count from './components/Count.vue'
-import TodoApp from './components/TodoApp.vue'
+import Count from './components/main/Count.vue'
+import TodoApp from './components/main/TodoApp.vue'
 
 const showApp = ref(false)
 </script>
