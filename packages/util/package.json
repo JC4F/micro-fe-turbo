@@ -14,6 +14,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@tanstack/vue-query": "^5.56.2"
+    "@tanstack/vue-query": "^5.56.2",
+    "zustand": "^4.5.5"
   }
 }

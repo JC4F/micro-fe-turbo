@@ -15,8 +15,6 @@ import {
 import { TodoManager } from '@repo/util';
 import { HlmButtonDirective, HlmInputDirective } from '@repo/angular-ui';
 
-console.log(TodoManager);
-
 @Component({
   selector: 'todo-app',
   standalone: true,

@@ -1,5 +1,5 @@
 import { Button, cn } from "@repo/react-ui";
-import { useGeneralStore } from "@/store";
+import { useGeneralStore } from "@repo/util";
 import { ReactIcon } from "@/components/icon/react";
 import { useState } from "react";
 import { TodoApp } from "@/components/react/todo-app";

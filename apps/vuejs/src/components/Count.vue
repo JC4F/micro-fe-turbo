@@ -1,18 +1,16 @@
 <script setup lang="ts">
 import { onUnmounted, ref } from 'vue'
 import { Button } from '@repo/vue-ui'
+import { useGeneralStore } from '@repo/util'
 
-const hostModule = await import('react-shell/Store')
-const store = hostModule.default.useGeneralStore
-
-const count = ref(store.getState().count)
-const unscribe = store.subscribe((state) => {
+const count = ref(useGeneralStore.getState().count)
+const unscribe = useGeneralStore.subscribe((state) => {
   count.value = state.count
 })
 
 function incrementCount() {
   count.value++
-  store.setState({ count: count.value })
+  useGeneralStore.setState({ count: count.value })
 }
 
 onUnmounted(() => {

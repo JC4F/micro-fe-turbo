@@ -4,6 +4,7 @@ import { HlmButtonDirective, HlmSkeletonComponent } from '@repo/angular-ui';
 import { CommonModule } from '@angular/common';
 import { environment } from './environments/environment';
 import { TodoAppComponent } from './features/main/todo-app/todo-app.component';
+import { useGeneralStore } from '@repo/util';
 
 interface GeneralStore {
   count: number;
@@ -45,8 +46,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   async ngOnInit() {
-    const hostModule = await import('react-shell/Store');
-    this.store = hostModule.default.useGeneralStore; // Assign store to class property
+    this.store = useGeneralStore;
 
     this.count = this.store.getState().count;
     this.moduleInitLoading = false;

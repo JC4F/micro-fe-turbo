@@ -29,9 +29,9 @@ export default ({ mode }: any) => {
             from: "webpack",
           },
         },
-        exposes: {
-          "./Store": "./src/expose.ts",
-        },
+        // exposes: {
+        //   "./Store": "./src/expose.ts",
+        // },
       }),
     ],
     server: {
