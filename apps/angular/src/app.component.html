@@ -1,28 +1,20 @@
 <main
-  class="ar-w-full ar-h-full ar-flex ar-flex-col ar-justify-center ar-items-center ar-gap-1"
+  class="ar-flex ar-items-center ar-justify-center ar-h-full ar-flex-col ar-gap-2"
 >
   <angular-icon />
+  <h1>Webpack + Angular</h1>
+
+  <div class="ar-flex ar-items-center ar-justify-center ar-gap-2">
+    <button hlmBtn (click)="incrementCount()">count is {{ count }}</button>
+    <button hlmBtn variant="destructive" (click)="showApp = !showApp">
+      Todo apps ^^
+    </button>
+  </div>
 
   <div
-    [class]="{
-      'ar-flex ar-flex-col ar-items-center ar-gap-4 ar-transition-all ar-duration-1000 ar-max-h-0': true,
-      '!ar-max-h-[100vh]': showApp,
-    }"
+    class="ar-flex ar-flex-col ar-items-center ar-gap-4 ar-transition-all ar-duration-1000 ar-max-h-0"
+    [ngClass]="{ '!ar-max-h-[100vh]': showApp }"
   >
-    <h1>Hello, {{ title }}</h1>
-    <p class="ar-mb-2">Congratulations! Your app is running. 🎉</p>
-
-    <div class="ar-flex ar-items-center ar-justify-center ar-gap-2">
-      @if (moduleInitLoading) {
-        <hlm-skeleton class="ar-w-[100px] ar-h-9 ar-rounded-md" />
-      } @else {
-        <button hlmBtn (click)="incrementCount()">count is {{ count }}</button>
-      }
-      <button hlmBtn variant="destructive" (click)="showApp = !showApp">
-        Todo apps ^^
-      </button>
-    </div>
-
     @if (showApp) {
       <todo-app />
     }

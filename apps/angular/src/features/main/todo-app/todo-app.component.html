@@ -1,8 +1,6 @@
-<div
-  class="ar-max-w-md ar-mx-auto ar-bg-white ar-rounded-xl ar-shadow-md ar-overflow-hidden"
->
+<ng-container>
   <div class="ar-p-6">
-    <h1 class="ar-text-xl ar-font-bold ar-text-gray-800 ar-mb-4">Todo App</h1>
+    <h1 class="ar-text-xl ar-font-bold ar-text-gray-800 ar-mb-4">💩💩 App</h1>
 
     <form class="ar-flex ar-space-x-2 ar-mb-4">
       <input
@@ -22,22 +20,26 @@
     </form>
 
     <ul class="ar-space-y-2 ar-mb-4">
-      @for (task of currentTasks; track task.id) {
-        <li
-          class="ar-flex ar-items-center ar-justify-between ar-p-2 ar-bg-gray-50 ar-rounded-lg"
-        >
-          <span class="ar-text-gray-700 ar-text-sm">{{ task.text }}</span>
-          <button
-            hlmBtn
-            variant="destructive"
-            size="sm"
-            (click)="handleDeleteTask(task.id)"
-            aria-label="Delete task"
-            class="ar-size-8 !ar-p-0"
+      @if (isFetching) {
+        <div>Loading tasks...</div>
+      } @else {
+        @for (task of currentTasks; track task.id) {
+          <li
+            class="ar-flex ar-items-center ar-justify-between ar-p-2 ar-bg-gray-50 ar-rounded-lg"
           >
-            <lucide-icon [img]="Trash2" class="ar-h-3 ar-w-3"></lucide-icon>
-          </button>
-        </li>
+            <span class="ar-text-gray-700 ar-text-sm">{{ task.text }}</span>
+            <button
+              hlmBtn
+              variant="destructive"
+              size="sm"
+              (click)="handleDeleteTask(task.id)"
+              aria-label="Delete task"
+              class="ar-size-8 !ar-p-0"
+            >
+              <lucide-icon [img]="Trash2" class="ar-h-3 ar-w-3"></lucide-icon>
+            </button>
+          </li>
+        }
       }
     </ul>
 
@@ -75,4 +77,4 @@
       </button>
     </div>
   </div>
-</div>
+</ng-container>

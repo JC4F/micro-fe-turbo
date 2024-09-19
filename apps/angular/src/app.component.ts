@@ -32,25 +32,21 @@ interface UseGeneralStore {
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'angular';
   count = 0;
   moduleInitLoading = true;
   showApp = false;
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   private unsubscribe: () => void = () => {};
-  private store: UseGeneralStore | undefined;
+  private store: UseGeneralStore;
 
   constructor() {
     console.log('test env', environment.testEnv);
+    this.store = useGeneralStore;
+    this.count = this.store.getState().count;
   }
 
   async ngOnInit() {
-    this.store = useGeneralStore;
-
-    this.count = this.store.getState().count;
-    this.moduleInitLoading = false;
-
     // Store the unsubscribe function
     this.unsubscribe = this.store.subscribe((state) => {
       this.count = state.count;

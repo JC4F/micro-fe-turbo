@@ -60,7 +60,7 @@ const handleDeleteTask = (taskId: number) => {
 <template>
   <div class="vs-max-w-md vs-mx-auto vs-bg-white vs-rounded-xl vs-shadow-md vs-overflow-hidden">
     <div class="vs-p-6">
-      <h1 class="vs-text-xl vs-font-bold vs-text-gray-800 vs-mb-4">Todo App</h1>
+      <h1 class="vs-text-xl vs-font-bold vs-text-gray-800 vs-mb-4">💩💩 App</h1>
 
       <form @submit.prevent="handleAddTask" class="vs-flex vs-space-x-2 vs-mb-4">
         <Input type="text" v-model="newTask" placeholder="Add a new task" class="vs-flex-grow" />

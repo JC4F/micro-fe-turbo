@@ -54,15 +54,11 @@ export const TodoApp = () => {
     deleteTaskMutation.mutate(taskId);
   };
 
-  if (isLoading) {
-    return <div>Loading tasks...</div>;
-  }
-
   return (
     <div className="rt-max-w-md rt-mx-auto rt-bg-white rt-rounded-xl rt-shadow-md rt-overflow-hidden">
       <div className="rt-p-6">
         <h1 className="rt-text-xl rt-font-bold rt-text-gray-800 rt-mb-4">
-          Todo App
+          💩💩 App
         </h1>
 
         <form onSubmit={handleAddTask} className="rt-flex rt-space-x-2 rt-mb-4">
@@ -80,23 +76,31 @@ export const TodoApp = () => {
         </form>
 
         <ul className="rt-space-y-2 rt-mb-4">
-          {currentTasks.map((task) => (
-            <li
-              key={task.id}
-              className="rt-flex rt-items-center rt-justify-between rt-p-2 rt-bg-gray-50 rt-rounded-lg"
-            >
-              <span className="rt-text-gray-700 rt-text-sm">{task.text}</span>
-              <Button
-                variant="destructive"
-                size="sm"
-                onClick={() => handleDeleteTask(task.id)}
-                aria-label="Delete task"
-                className="rt-size-8 !rt-p-0"
-              >
-                <Trash2 className="rt-h-3 rt-w-3" />
-              </Button>
-            </li>
-          ))}
+          {isLoading ? (
+            <div>Loading tasks...</div>
+          ) : (
+            <>
+              {currentTasks.map((task) => (
+                <li
+                  key={task.id}
+                  className="rt-flex rt-items-center rt-justify-between rt-p-2 rt-bg-gray-50 rt-rounded-lg"
+                >
+                  <span className="rt-text-gray-700 rt-text-sm">
+                    {task.text}
+                  </span>
+                  <Button
+                    variant="destructive"
+                    size="sm"
+                    onClick={() => handleDeleteTask(task.id)}
+                    aria-label="Delete task"
+                    className="rt-size-8 !rt-p-0"
+                  >
+                    <Trash2 className="rt-h-3 rt-w-3" />
+                  </Button>
+                </li>
+              ))}
+            </>
+          )}
         </ul>
 
         <div className="rt-flex rt-items-center rt-justify-between rt-text-sm">

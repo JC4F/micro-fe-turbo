@@ -1,5 +1,5 @@
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Component } from '@angular/core';
+import { Component, HostBinding, effect } from '@angular/core';
 import {
   injectMutation,
   injectQuery,
@@ -27,6 +27,9 @@ import { HlmButtonDirective, HlmInputDirective } from '@repo/angular-ui';
   templateUrl: './todo-app.component.html',
 })
 export class TodoAppComponent {
+  @HostBinding('class') classes =
+    'ar-max-w-md ar-mx-auto ar-bg-white ar-rounded-xl ar-shadow-md ar-overflow-hidden';
+
   readonly PlusCircle = PlusCircle;
   readonly Trash2 = Trash2;
   readonly ChevronLeft = ChevronLeft;
@@ -36,6 +39,20 @@ export class TodoAppComponent {
   newTask = new FormControl('');
   currentPage = 1;
   itemsPerPage = 5;
+
+  constructor() {
+    // Register a new effect.
+    effect(() => {
+      this.tasks = this.query.data() || [];
+      this.isFetching = this.query.status() === 'pending';
+
+      // Calculate pagination values
+      this.totalPages = Math.ceil(this.tasks.length / this.itemsPerPage);
+      this.startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      this.endIndex = this.startIndex + this.itemsPerPage;
+      this.currentTasks = this.tasks.slice(this.startIndex, this.endIndex);
+    });
+  }
 
   query = injectQuery(() => ({
     queryKey: ['tasks'],
@@ -58,6 +75,7 @@ export class TodoAppComponent {
   }));
 
   tasks = this.query.data() || [];
+  isFetching = this.query.status() === 'pending';
 
   // Calculate pagination values
   totalPages = Math.ceil(this.tasks.length / this.itemsPerPage);
