@@ -5,7 +5,7 @@ Features:
 - 🎊 Deploy: Vercel
 - 🛠️ React + Vite: Host
 - 🧰 Angular + Webpack: Remote
-- 🪄 Vue3 + Vite: Remote
+- 🎎 Vue3 + Vite: Remote
 - 🎨 Module Federation with vite, webpack
 - ↩️ UI: Shadcn with React, Vue, Angular (Spartan UI), Darkmode
 - ⌨️ State Management:
