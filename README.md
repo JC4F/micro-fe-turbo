@@ -1,7 +1,7 @@
 # Build a base Microfrontend apps
 
 Features:
-- 🎇 Package Manager: Turborepo
+- 🎇 Monorepo with Turborepo
 - 🎊 Deploy: Vercel
 - 🛠️ React + Vite: Host
 - 🧰 Angular + Webpack: Remote
